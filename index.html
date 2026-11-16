@@ -162,7 +162,20 @@ dialog.lb .lb-a{color:#fff;font-size:14px;border:1px solid rgba(255,255,255,.4);
 #metro-map{height:460px;border-radius:var(--r);border:1px solid var(--line);background:#e9eee9;z-index:0}
 .legend{display:flex;flex-wrap:wrap;gap:10px;font-size:13px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
-.legend i{width:18px;height:4px;border-radius:2px;display:inline-block}
+.legend i{width:22px;height:5px;border-radius:3px;display:inline-block}
+.legend{font-size:14.5px;gap:12px 18px}
+.mnear{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.mcard{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--lc);border-radius:var(--r);padding:16px 18px;display:grid;gap:6px}
+.mcard .badge{justify-self:start;background:var(--lc);color:#fff;font-weight:700;font-size:15px;padding:3px 12px;border-radius:999px;letter-spacing:.02em}
+.mcard b{font-family:var(--f-display);font-size:34px;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
+.mcard p{margin:0;font-size:16px;line-height:1.55;color:var(--muted);letter-spacing:.01em}
+.mcard p strong{color:var(--ink);font-weight:600}
+.mtools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mtools button{font:inherit;font-size:14.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.mtools button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.leaflet-tooltip.mlab{font:600 13px/1.3 var(--f-body, sans-serif);padding:4px 8px;border-radius:8px;border:0;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.leaflet-tooltip.mlab.home{background:#bf4569;color:#fff;font-size:14px}
+.leaflet-tooltip.mlab.home:before{border-top-color:#bf4569}
 dialog.lb button{font:inherit;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer}
 dialog.lb .nav{display:flex;gap:6px}
 
@@ -495,7 +508,15 @@ footer .in{display:grid;gap:8px}
     <h2>Hai ga metro trong bán kính 500 m</h2>
     <p class="lede">Theo bản đồ “5 tuyến Metro HN”, có 2 ga dự kiến chỉ cách dự án khoảng 450 m: ga S14.24 của tuyến 14 và ga S8.30 của tuyến 8. Tuyến 14 chạy vào phía Hoàn Kiếm, tuyến 8 chạy ngang thành phố sang phía Tây.</p>
   </div>
-  <div class="facts" id="metro-near"></div>
+  <div class="mnear" id="metro-near"></div>
+  <div class="mtools" id="metro-tools">
+    <button type="button" data-v="center" aria-pressed="true">Senique → trung tâm</button>
+    <button type="button" data-v="near">Quanh dự án</button>
+    <button type="button" data-v="all">Toàn mạng lưới</button>
+    <span style="flex:1"></span>
+    <button type="button" data-b="street" aria-pressed="true">Bản đồ</button>
+    <button type="button" data-b="sat">Vệ tinh</button>
+  </div>
   <div id="metro-map" role="img" aria-label="Bản đồ các tuyến metro quy hoạch và vị trí The Senique"></div>
   <div class="legend" id="metro-legend"></div>
   <p class="note">Ga được đánh mã theo bản đồ quy hoạch cộng đồng chia sẻ, chưa có tên chính thức. Khoảng cách tính theo đường chim bay; thời gian đi bộ ước 80 m/phút.</p>
@@ -896,33 +917,65 @@ footer .in{display:grid;gap:8px}
   /* ---------- metro ---------- */
   const HOME = [21.00209, 105.95045];
   const ST = "14.01,21.0868,105.7843;14.02,21.0860,105.7937;14.03,21.0850,105.8045;14.04,21.0837,105.8143;14.05,21.0789,105.8198;14.06,21.0654,105.8309;14.07,21.0550,105.8371;14.08,21.0495,105.8415;14.09,21.0427,105.8486;14.10,21.0336,105.8555;14.11,21.0241,105.8571;14.12,21.0165,105.8593;14.13,21.0066,105.8666;14.14,21.0181,105.8855;14.15,21.0266,105.8981;14.16,21.0233,105.9042;14.17,21.0158,105.9092;14.18,21.0041,105.9144;14.19,20.9981,105.9186;14.20,20.9902,105.9223;14.21,20.9829,105.9256;14.22,20.9795,105.9356;14.23,20.9918,105.9446;14.24,20.9983,105.9516;14.25,21.0042,105.9606;14.26,21.0139,105.9633;1.14,21.0405,105.8496;1.13,21.0278,105.8418;1.10,20.9821,105.8406;1.27,21.2124,105.8047;1.26,21.1812,105.8709;1.25,21.1591,105.8710;1.24,21.1521,105.8734;1.23,21.1367,105.8875;1.22,21.1234,105.9006;1.21,21.1144,105.9097;1.20,21.1010,105.9236;1.18,21.0801,105.9128;1.17,21.0653,105.8979;1.16,21.0560,105.8886;1.15,21.0501,105.8770;1.12,21.0050,105.8411;1.11,20.9955,105.8408;1.09,20.9699,105.8409;1.08,20.9523,105.8437;1.07,20.9349,105.8420;1.05,20.8873,105.8576;1.04,20.8766,105.8620;1.03,20.8566,105.8624;1.02,20.8509,105.8326;1.06,20.9161,105.8426;1.01,20.8454,105.8230;1.19,21.0893,105.9210;1.28,21.2160,105.7923;1.27A,21.2079,105.8203;1.26A,21.1877,105.8527;10.02,21.0715,105.8094;10.04,21.0572,105.7976;10.05,21.0542,105.7892;10.06,21.0536,105.7797;10.07,21.0461,105.7784;10.08,21.0370,105.7714;10.09,21.0247,105.7672;10.10,21.0176,105.7670;10.11,21.0184,105.7832;10.12,21.0175,105.7935;10.13,21.0118,105.7980;10.14,21.0036,105.8073;10.15,20.9972,105.8138;10.16,20.9894,105.8244;10.17,20.9835,105.8329;10.18,20.9836,105.8482;10.19,20.9836,105.8555;10.20,20.9837,105.8643;10.21,20.9938,105.8718;10.22,21.0017,105.8702;10.23,21.0199,105.8863;10.24,21.0290,105.8808;10.25,21.0385,105.8831;10.26,21.0481,105.8886;10.27,21.0580,105.8843;10.28,21.0655,105.8859;10.29,21.0735,105.8903;10.30,21.0839,105.8847;10.31,21.0945,105.8755;10.01,21.0840,105.8154;10.03,21.0641,105.8030;8.01,21.0049,105.4763;8.02,21.0051,105.5061;8.05,21.0443,105.5773;8.06,21.0451,105.6006;8.07,21.0463,105.6288;8.08,21.0459,105.6665;8.09,21.0463,105.6956;8.11,21.0466,105.7195;8.12,21.0460,105.7344;8.13,21.0504,105.7609;8.14,21.0479,105.7755;8.15,21.0462,105.7903;8.16,21.0461,105.8008;8.17,21.0422,105.8065;8.18,21.0287,105.7992;8.19,21.0219,105.8063;8.20,21.0180,105.8204;8.21,21.0047,105.8333;8.22,20.9952,105.8425;8.23,20.9955,105.8509;8.24,20.9948,105.8595;8.25,20.9929,105.8723;8.26,20.9900,105.8830;8.27,20.9844,105.8913;8.28,20.9906,105.9214;8.29,21.0006,105.9394;8.30,21.0060,105.9495;8.31,21.0148,105.9594;8.32,21.0206,105.9799;8.33,21.0247,106.0003;8A.01,21.0252,106.0237;8A.02,21.0244,106.0454;8A.03,21.0222,106.0613;8A.04,21.0172,106.0763;8A.05,21.0105,106.0962;8A.06,21.0027,106.1111;8A.07,21.0016,106.1278;8A.08,21.0086,106.1492;8A.09,21.0169,106.1595;8A.10,21.0261,106.1654;8A.11,21.0345,106.1774;8A.12,21.0378,106.1875;8A.13,21.0401,106.2001;8A.14,21.0484,106.2204;8.12a,21.0460,105.7470;8.10,21.0462,105.7070;8.03,21.0181,105.5200;8.04,21.0339,105.5462;2.01,21.1938,105.8338;2.02,21.1811,105.8271;2.03,21.1688,105.8205;2.04,21.1481,105.8188;2.05,21.1355,105.8189;2.06,21.1232,105.8190;2.07,21.1138,105.8190;2.08,21.0838,105.8008;2.09,21.0758,105.8008;2.10,21.0745,105.7955;2.11,21.0656,105.7976;2.12,21.0592,105.7976;2.13,21.0462,105.8025;2.14,21.0427,105.8160;2.15,21.0415,105.8294;2.16,21.0421,105.8351;2.17,21.0400,105.8455;2.18,21.0288,105.8538;2.19,21.0211,105.8522;2.20,21.0144,105.8517;2.21,21.0084,105.8460;2.22,21.0072,105.8350;2.23,21.0054,105.8227;2.24,20.9985,105.8139;2.25,20.9890,105.8002;2.26,20.9647,105.7981;2.27,20.9545,105.7882;2.28,20.9470,105.7856;2.29,20.9289,105.7837;2.30,20.9192,105.7841;2.31,20.9068,105.7875;2.32,20.8989,105.7911;2.33,20.8838,105.7980;2.34,20.8742,105.8025;2.35,20.8557,105.8148;2.36,20.8446,105.8226;2.37,20.8315,105.8319;2.01A,21.2155,105.7911;2.01B,21.2116,105.8041;2.38,20.8240,105.8415;2.25A,20.9766,105.8004;8B.01A,20.9876,105.9283;8B.01,20.9746,105.9285;8B.02,20.9615,105.9324;8B.03,20.9496,105.9411;8B.04,20.9496,105.9606;8B.05,20.9528,105.9751;8B.06,20.9591,105.9864";
-  const LC = { "1":"#e53935", "2":"#2e7d32", "8":"#8e24aa", "8A":"#c158dc", "8B":"#d81b60", "10":"#ef6c00", "14":"#1e88e5" };
+  const LC = { "1":"#e53935", "2":"#22a845", "8":"#d63ad6", "10":"#f2b705", "14":"#6a1b9a", "8B":"#1e6bff" };
+  const lineOf = l => l === "8A" ? "8" : l;
+  /* hướng tuyến lấy từ bản đồ "5 tuyến Metro HN", toạ độ ×1e4, điểm đầu tuyệt đối rồi chênh lệch */
+  const GEO = {"1":"208442,1058207 90,159 33,93 5,26 0,27 2,29 -6,115 2,9 6,8 7,5 9,3 10,-1 25,-9 58,-17 93,-39 12,-6 24,-15 20,-9 16,-5 53,-11 68,-23 12,-6 12,-9 8,-9 27,-34 11,-9 12,-7 130,-56 92,-19 15,0 13,2 58,25 11,4 65,10 11,1 57,-1 13,-1 91,-18 13,-2 39,-1 56,-11 17,-1 59,0 75,3 102,1 98,3 93,2 6,0 13,-4 6,-1 78,-1 7,1 5,2 6,3 4,4 19,24 8,7 10,3 63,13 9,5 7,8 3,7 6,21 73,179 3,13 28,124 7,18 11,16 70,72 101,97 32,38 32,29 32,33 15,13 31,25 104,102 8,5 9,1 10,-2 9,-5 42,-46 31,-28 141,-152 15,-15 16,-13 113,-88 6,-7 5,-5 3,-7 32,-80 27,-46 4,-5 5,-4 8,-3 167,-58 12,-2 12,2 56,21 11,5 12,8 42,35 8,5 9,2 8,-1 8,-3 7,-5 5,-6 3,-7 94,-260 6,-11 4,-4 5,-3 11,-3 99,5 6,-1 6,-3 4,-4 4,-6 3,-8 28,-100 1,-12 -4,-63 0,-8 1,-10 16,-53","2":"212164,1057909 -112,394 -4,7 -5,6 -5,5 -7,5 -50,21 -11,2 -10,0 -9,-4 -277,-146 -9,-5 -10,-3 -18,-2 -523,2 -15,-2 -14,-4 -13,-7 -204,-161 -9,-5 -7,-1 -37,-4 -9,1 -25,6 -9,0 -8,-3 -65,-29 -9,-3 -8,-1 -190,-1 -10,1 -7,4 -5,5 -4,6 -2,8 -1,95 -2,11 -5,10 -19,20 -6,11 -7,30 -5,38 -10,27 -4,16 -1,7 1,7 18,34 3,10 0,11 -1,10 -8,32 -19,101 -4,9 -7,7 -7,3 -34,14 -9,7 -23,24 -7,3 -8,1 -19,-1 -105,-22 -11,-1 -35,3 -17,0 -10,-4 -8,-7 -4,-6 -2,-8 -9,-64 1,-9 9,-32 0,-11 -2,-7 -3,-5 -21,-24 -3,-7 -1,-7 0,-7 2,-5 21,-48 0,-10 -2,-10 -4,-6 -5,-5 -29,-15 -9,-8 -21,-34 -73,-107 -65,-92 -4,-4 -4,-4 -10,-3 -11,0 -7,3 -41,23 -9,4 -92,23 -12,0 -9,-3 -8,-7 -30,-50 -44,-54 -10,-9 -8,-6 -9,-4 -48,-15 -28,-11 -81,-21 -20,-4 -21,-2 -23,0 -199,8 -13,3 -16,6 -398,183 -12,7 -463,327 -5,6 -3,6 -1,8 0,7 2,7 21,47","8":"210069,1054739 -60,75 -4,7 -4,8 -2,14 -1,86 1,11 4,12 94,208 6,10 9,10 11,7 84,17 11,6 10,9 6,8 14,27 20,55 3,12 4,46 3,9 4,9 37,58 8,7 85,69 6,7 5,8 8,17 3,8 -3,162 3,21 19,59 3,22 -4,210 4,197 2,26 10,61 2,20 -1,64 -3,27 -6,24 -24,75 -3,13 -1,12 1,12 2,13 28,99 1,8 -1,465 0,18 8,63 1,17 -2,20 -8,47 -1,13 0,214 2,8 4,8 52,72 4,9 0,10 -1,7 -3,7 -52,79 -3,6 -2,5 1,280 -2,10 -5,10 -7,6 -10,4 -42,9 -16,1 -7,-1 -6,-3 -40,-21 -63,-55 -7,-3 -6,-1 -7,1 -7,3 -5,5 -9,10 -5,9 -7,34 -4,13 -27,59 -6,40 -2,9 -34,76 -29,53 -8,9 -10,6 -132,55 -7,5 -5,7 -3,10 0,10 17,47 1,12 -5,40 -13,124 -2,7 -9,22 -2,8 -2,71 -3,21 -37,108 -4,8 -6,9 -77,76 -5,8 -4,7 -2,10 0,8 2,12 5,11 136,256 35,58 97,181 8,11 8,9 33,26 11,11 75,103 2,7 1,8 3,160 1,12 2,9 5,8 35,50 4,10 1,10 0,13 -13,77 -1,12 13,239 -17,131 1,12 15,80 0,9 -1,8 -164,489 -11,22 -66,105 -9,17 -4,13 -2,15 0,15 2,14 38,140 7,15 44,71 4,9 1,7 0,7 -15,81 1,9 2,8 7,9 9,5 108,33 14,6 9,8 89,91 11,13 7,17 49,152 1,9 1,40 2,15 30,93 8,20 23,35 7,14 38,117","10":"210846,1058158 -31,-15 -22,-10 -35,-20 -63,-26 -43,-25 -7,-8 -4,-10 0,-39 -2,-8 -4,-9 -7,-6 -6,-3 -7,-2 -48,0 -9,-4 -7,-6 -6,-8 -2,-10 -2,-81 -6,-79 -2,-7 -2,-5 -4,-5 -4,-4 -8,-4 -28,-5 -97,-34 -9,-4 -27,-15 -10,-4 -47,-12 -81,-28 -10,-1 -11,1 -35,16 -5,3 -5,4 -4,6 -2,6 -11,46 0,7 1,7 5,12 66,91 12,15 3,6 1,6 0,7 -2,7 -4,8 -6,6 -13,9 -44,27 -16,13 -82,84 -31,47 -10,14 -15,14 -43,28 -14,12 -5,6 -3,7 -1,6 0,21 -3,7 -3,6 -5,6 -45,39 -24,23 -9,13 -3,10 -2,10 -2,45 2,136 -2,33 2,134 5,11 8,9 31,22 14,6 9,2 38,3 35,-2 10,-3 72,-28 11,-1 9,3 7,5 5,7 77,146 4,4 5,4 28,12 6,1 6,0 5,-1 5,-3 72,-63 9,-5 10,-1 6,2 6,2 94,58 77,41 11,3 7,0 6,-2 17,-12 8,-8 34,-41 6,-5 11,-6 12,-2 7,1 6,3 7,4 5,4 46,66 6,6 6,4 6,2 6,0 7,-1 139,-74 10,-9 89,-83","14":"210870,1057831 -27,296 -2,9 -14,30 -4,7 -5,6 -8,7 -38,25 -35,41 -9,7 -88,61 -7,4 -13,4 -7,2 -28,22 -53,31 -66,60 -19,26 -6,7 -26,22 -14,14 -40,31 -16,9 -34,15 -11,1 -21,-6 -10,0 -41,14 -39,12 -45,11 -8,5 -22,22 -8,3 -20,6 -7,5 -5,7 -20,51 -1,10 2,11 5,10 71,98 7,7 9,6 116,50 6,4 5,5 5,7 3,6 2,9 0,11 -5,21 -4,11 -14,29 -13,18 -26,55 -4,7 -5,5 -7,4 -7,2 -20,0 -6,1 -34,17 -7,1 -25,0 -29,10 -7,5 -59,53 -8,6 -72,33 -89,40 -33,18 -8,2 -18,2 -6,2 -9,7 -6,9 -1,5 -1,7 1,7 3,6 44,58 8,6 120,79 8,5 6,7 76,108 43,76 4,5 5,5 8,3 8,1 8,-2 8,-5 45,-48 10,-14 17,-26","8B":"209911,1059224 3,8 1,6 0,6 -2,7 -3,6 -4,5 -5,4 -6,2 -8,1 -115,1 -11,3 -27,20 -8,4 -8,1 -55,-2 -9,1 -10,3 -7,4 -7,6 -106,94 -10,4 -45,6 -5,3 -5,3 -7,10 -2,8 -3,24 -1,6 1,7 3,9 34,64 4,10 16,101 33,131 8,17 9,15 55,63"};
+  const decode = s => { let a = 0, b = 0; return s.split(" ").map(p => { const [x,y] = p.split(",").map(Number); a += x; b += y; return [a/1e4, b/1e4]; }); };
   const seen = new Set();
-  const stations = ST.split(";").map(s => { const [c,a,b] = s.split(","); return { code:"S"+c, line:c.split(".")[0], n:c.split(".")[1], lat:+a, lng:+b }; }).filter(s => !seen.has(s.code) && seen.add(s.code));
+  const stations = ST.split(";").map(s => { const [c,a,b] = s.split(","); const raw = c.split(".")[0]; return { code:"S"+c, line:lineOf(raw), raw, n:c.split(".")[1], lat:+a, lng:+b }; }).filter(s => !seen.has(s.code) && seen.add(s.code));
   const hav = (a,b,c,d) => { const R=6371000, r=Math.PI/180, x=(c-a)*r, y=(d-b)*r; const h=Math.sin(x/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
   stations.forEach(s => s.d = hav(HOME[0],HOME[1],s.lat,s.lng));
-  const byLine = {}; stations.forEach(s => (byLine[s.line] = byLine[s.line] || []).push(s));
-  const nearest = Object.entries(byLine).map(([l, arr]) => arr.reduce((m,s) => s.d < m.d ? s : m)).sort((a,b) => a.d - b.d);
+  const near = stations.filter(s => s.d < 1000).sort((a,b) => a.d - b.d);
   const nearHost = $("#metro-near");
-  nearest.slice(0,4).forEach(s => {
-    const f = document.createElement("div"); f.className = "fact";
-    const b = document.createElement("b"); b.textContent = s.d < 1000 ? Math.round(s.d/10)*10 + " m" : (s.d/1000).toFixed(1).replace(".",",") + " km";
-    const sp = document.createElement("span"); sp.textContent = "Tuyến " + s.line + " · ga " + s.code + " · đi bộ ~" + Math.round(s.d/80) + " phút";
-    f.append(b, sp); nearHost.appendChild(f);
+  near.forEach(s => {
+    const c = document.createElement("div"); c.className = "mcard"; c.style.setProperty("--lc", LC[s.line]);
+    const bd = document.createElement("span"); bd.className = "badge"; bd.textContent = "Tuyến " + s.raw;
+    const b = document.createElement("b"); b.textContent = "≈ " + Math.round(s.d/10)*10 + " m";
+    const p1 = document.createElement("p"); p1.append("Ga "); const st = document.createElement("strong"); st.textContent = s.code; p1.append(st);
+    const p2 = document.createElement("p"); p2.textContent = "Đi bộ khoảng " + Math.round(s.d/80) + " phút";
+    c.append(bd, b, p1, p2); nearHost.appendChild(c);
   });
   const leg = $("#metro-legend");
-  Object.keys(LC).forEach(l => { if(!byLine[l]) return; const s = document.createElement("span"); const i = document.createElement("i"); i.style.background = LC[l]; s.append(i, document.createTextNode("Tuyến " + l)); leg.appendChild(s); });
+  Object.keys(LC).forEach(l => { const s = document.createElement("span"); const i = document.createElement("i"); i.style.background = LC[l]; s.append(i, document.createTextNode("Tuyến " + (l === "8" ? "8 (gồm 8A)" : l))); leg.appendChild(s); });
   function initMap(){
     if(!window.L){ $("#metro-map").textContent = ""; return; }
-    const map = L.map("metro-map", { scrollWheelZoom:false }).setView(HOME, 12);
-    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom:18, attribution:"Tiles © Esri" }).addTo(map);
-    Object.entries(byLine).forEach(([l, arr]) => {
-      const main = arr.filter(s => /^\d+$/.test(s.n)).sort((a,b) => +a.n - +b.n);
-      L.polyline(main.map(s => [s.lat, s.lng]), { color: LC[l] || "#555", weight: 4, opacity: .85 }).addTo(map);
-      arr.forEach(s => L.circleMarker([s.lat, s.lng], { radius: s.d < 1000 ? 7 : 4, color: "#fff", weight: 1.5, fillColor: LC[l] || "#555", fillOpacity: 1 }).bindTooltip("Tuyến " + l + " · " + s.code + " · cách dự án " + (s.d/1000).toFixed(1).replace(".",",") + " km").addTo(map));
+    const HG = [21.0288, 105.8525];
+    const map = L.map("metro-map", { scrollWheelZoom:false, zoomSnap:.25 });
+    const bases = {
+      street: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom:18, attribution:"Tiles © Esri" }),
+      sat: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom:18, attribution:"Ảnh © Esri" })
+    };
+    bases.street.addTo(map);
+    const nearLines = new Set(near.map(s => s.line));
+    Object.entries(GEO).forEach(([l, s]) => {
+      const pts = decode(s), key = nearLines.has(l);
+      L.polyline(pts, { color:"#fff", weight: key ? 11 : 8, opacity:.9, interactive:false }).addTo(map);
+      L.polyline(pts, { color: LC[l], weight: key ? 7 : 5, opacity: 1 }).bindTooltip("Tuyến " + l, { sticky:true, className:"mlab" }).addTo(map);
     });
-    L.circle(HOME, { radius: 500, color: "#bf4569", weight: 1, fillOpacity: .06 }).addTo(map);
-    L.circleMarker(HOME, { radius: 9, color: "#fff", weight: 2, fillColor: "#bf4569", fillOpacity: 1 }).bindTooltip("The Senique Hanoi", { permanent: true, direction: "top", offset: [0,-8] }).addTo(map);
+    stations.forEach(s => {
+      const isNear = s.d < 1000;
+      L.circleMarker([s.lat, s.lng], { radius: isNear ? 8 : 3.5, color: LC[s.line], weight: isNear ? 4 : 2, fillColor:"#fff", fillOpacity:1 })
+        .bindTooltip(isNear ? s.code + " · " + Math.round(s.d/10)*10 + " m" : "Tuyến " + s.raw + " · " + s.code, isNear ? { permanent:true, direction: s.raw === "14" ? "bottom" : "left", offset: s.raw === "14" ? [0, 8] : [-8, 0], className:"mlab" } : { className:"mlab" })
+        .addTo(map);
+    });
+    L.circle(HOME, { radius: 500, color:"#bf4569", weight: 1.5, dashArray:"4 4", fillOpacity:.08 }).addTo(map);
+    L.circleMarker(HOME, { radius: 11, color:"#fff", weight: 3, fillColor:"#bf4569", fillOpacity:1 }).bindTooltip("The Senique", { permanent:true, direction:"top", offset:[0,-12], className:"mlab home" }).addTo(map);
+    L.circleMarker(HG, { radius: 7, color:"#fff", weight: 2, fillColor:"#16231d", fillOpacity:1 }).bindTooltip("Hồ Hoàn Kiếm", { permanent:true, direction:"top", offset:[0,-8], className:"mlab" }).addTo(map);
+    const views = {
+      center: () => { map.fitBounds(L.latLngBounds([HOME, HG]).pad(map.getSize().x < 500 ? .3 : .2)); },
+      near: () => map.setView(HOME, 15),
+      all: () => map.fitBounds(stations.map(s => [s.lat, s.lng]), { padding:[20,20] })
+    };
+    views.center();
+    if("IntersectionObserver" in window){ const io = new IntersectionObserver(es => { if(es.some(e => e.isIntersecting)){ io.disconnect(); map.invalidateSize(); views.center(); } }); io.observe($("#metro-map")); }
+    $("#metro-tools").addEventListener("click", e => {
+      const btn = e.target.closest("button"); if(!btn) return;
+      const grp = btn.dataset.v ? "v" : "b";
+      $("#metro-tools").querySelectorAll("button[data-" + grp + "]").forEach(x => x.setAttribute("aria-pressed", x === btn ? "true" : "false"));
+      if(grp === "v") views[btn.dataset.v]();
+      else { Object.values(bases).forEach(t => map.removeLayer(t)); bases[btn.dataset.b].addTo(map); }
+    });
   }
   initMap();
 
