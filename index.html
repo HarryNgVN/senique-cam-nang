@@ -756,6 +756,8 @@ footer .in{display:grid;gap:8px}
     const mirror = /M$/.test(code) ? " (căn " + code + " là bản đối xứng)" : "";
     if(/^DUP/.test(b)) return [{src:"img/layout/" + b + "-L1.jpg", cap:"Layout " + b + " · tầng dưới" + mirror},{src:"img/layout/" + b + "-L2.jpg", cap:"Layout " + b + " · tầng trên" + mirror}];
     if(/^[ABCD]\d\.\d\d$/.test(b)) return [{src:"img/layout/" + b + ".jpg", cap:"Layout " + b + mirror}];
+    if(b === "PH1") return [{src:"img/layout/PH1-L1.jpg", cap:"Penthouse PH1M (căn 13) và PH1 (căn 14) · tầng 36 (tầng dưới)"},{src:"img/layout/PH1-L2.jpg", cap:"Penthouse PH1M và PH1 · tầng 37 (tầng trên)"}];
+    if(b === "PH2.01" || b === "PH2.02") return [{src:"img/layout/" + b + ".jpg", cap:"Penthouse " + b + " · tầng 37 Premier"}];
     return [];
   };
   const fmt = v => typeof v === "number" ? v.toLocaleString("vi-VN",{minimumFractionDigits:1}) + " m²" : v + " m²";
