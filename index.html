@@ -151,6 +151,18 @@ dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,96vw);w
 dialog.lb::backdrop{background:rgba(5,10,8,.9)}
 dialog.lb img{width:100%;max-height:78vh;object-fit:contain;border-radius:8px}
 dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#fff;padding:10px 2px;font-weight:600}
+dialog.lb .lb-a{color:#fff;font-size:14px;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:6px 12px;text-decoration:none}
+.lbtn{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--leaf);border-radius:999px;padding:4px 10px;cursor:pointer;white-space:nowrap}
+.res .lay{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.res .lay button{padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;cursor:zoom-in;width:150px}
+.res .lay img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
+.plan-view{display:grid;gap:12px}
+.plan-view button.pimg{padding:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;cursor:zoom-in}
+.plan-view img{width:100%}
+#metro-map{height:460px;border-radius:var(--r);border:1px solid var(--line);background:#e9eee9;z-index:0}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:13px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:18px;height:4px;border-radius:2px;display:inline-block}
 dialog.lb button{font:inherit;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer}
 dialog.lb .nav{display:flex;gap:6px}
 
@@ -158,6 +170,10 @@ footer{padding-block:28px 40px;font-size:13px;color:var(--muted)}
 footer .in{display:grid;gap:8px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gal img{transition:none}}
 </style>
+<style>/* Leaflet 1.9.4 */
+.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 
@@ -176,12 +192,14 @@ footer .in{display:grid;gap:8px}
   <a href="#ba-toa">3 tòa</a>
   <a href="#tra-cuu">Tiện ích</a>
   <a href="#can-ho">Loại căn</a>
+  <a href="#mat-bang">Mặt bằng</a>
   <a href="#tra-can">Tra căn</a>
   <a href="#hinh-anh">Hình ảnh</a>
   <a href="#clip">Clip 3D</a>
   <a href="#ban-giao">Bàn giao</a>
   <a href="#shop">Shophouse</a>
   <a href="#vi-tri">Vị trí</a>
+  <a href="#metro">Metro</a>
   <a href="#cu-dan">Nhóm cư dân</a>
 </div></nav>
 
@@ -299,11 +317,16 @@ footer .in{display:grid;gap:8px}
   <div class="chips" id="f-br" role="group" aria-label="Lọc theo số phòng ngủ"></div>
   <div class="tw">
     <table>
-      <thead><tr><th>Loại</th><th>Mã</th><th class="num">Thông thủy</th><th class="num">Tim tường</th><th>Tầng</th><th>Căn số · mặt bằng gốc</th><th>Căn số · đối xứng (mã M)</th></tr></thead>
+      <thead><tr><th>Layout</th><th>Loại</th><th>Mã</th><th class="num">Thông thủy</th><th class="num">Tim tường</th><th>Tầng</th><th>Căn số · mặt bằng gốc</th><th>Căn số · đối xứng (mã M)</th></tr></thead>
       <tbody id="types"></tbody>
     </table>
   </div>
-  <p class="note">Mã có thêm chữ M (ví dụ B2.02M) là mặt bằng đối xứng, diện tích như căn gốc. Số căn trong bảng áp dụng cho cả Senique I và II. Với Duplex và Penthouse, diện tích ghi theo tầng dưới + tầng trên. Nguồn: brochure Senique I-II và slide Senique Premier.</p>
+  <p class="note">Mã có thêm chữ M (ví dụ B2.02M) là mặt bằng đối xứng, diện tích như căn gốc. Số căn trong bảng áp dụng cho cả Senique I và II. Với Duplex và Penthouse, diện tích ghi theo tầng dưới + tầng trên. Nguồn: brochure Senique I-II và slide Senique Premier. Bấm “Xem” để mở layout chi tiết của từng loại căn. Penthouse Premier chưa có layout riêng trong tài liệu.</p>
+
+  <div>
+    <h3 style="margin-bottom:10px">Điểm nổi bật thiết kế căn hộ</h3>
+    <div class="gal" id="gal-design"></div>
+  </div>
 
   <div class="two">
     <div class="card">
@@ -327,6 +350,21 @@ footer .in{display:grid;gap:8px}
       </div>
       <p class="note">Tầng 20 Premier là tầng tiện ích, không có căn hộ. Khác S1/S2: tầng 22 đã có Duplex DUP2.01, tầng 23 dùng mặt bằng nhóm 25–35, tầng 36–37 là Penthouse. Căn Duplex và Penthouse ghi diện tích tầng dưới; tầng trên không đánh số căn riêng.</p>
     </div>
+  </div>
+</div></section>
+
+<section class="blk" id="mat-bang"><div class="in">
+  <div>
+    <div class="eyebrow">Mặt bằng tầng</div>
+    <h2>Xem mặt bằng từng tầng</h2>
+    <p class="lede">Chọn tòa và nhóm tầng để xem mặt bằng gốc của chủ đầu tư, có số căn, mã căn và diện tích. Bấm vào ảnh để phóng to, hoặc mở “Ảnh gốc” để zoom kỹ trên điện thoại.</p>
+  </div>
+  <div class="card plan-view">
+    <div class="finder">
+      <label for="pv-t">Tòa<select id="pv-t"><option value="s1">Senique I</option><option value="s2">Senique II</option><option value="sp">Senique Premier</option></select></label>
+      <label for="pv-g">Nhóm tầng<select id="pv-g"></select></label>
+    </div>
+    <button type="button" class="pimg" id="pv-btn"><img id="pv-img" alt="Mặt bằng tầng"></button>
   </div>
 </div></section>
 
@@ -424,6 +462,10 @@ footer .in{display:grid;gap:8px}
       <h3>Ảnh phối cảnh khối đế</h3>
       <div class="gal" id="gal-shop" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))"></div>
     </div>
+    <div class="card">
+      <h3>Tổng mặt bằng và mặt bằng shop</h3>
+      <div class="gal" id="gal-shopplan" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))"></div>
+    </div>
   </div>
 </div></section>
 
@@ -447,6 +489,18 @@ footer .in{display:grid;gap:8px}
   </div>
 </div></section>
 
+<section class="blk" id="metro"><div class="in">
+  <div>
+    <div class="eyebrow">Metro</div>
+    <h2>Hai ga metro trong bán kính 500 m</h2>
+    <p class="lede">Theo bản đồ “5 tuyến Metro HN”, có 2 ga dự kiến chỉ cách dự án khoảng 450 m: ga S14.24 của tuyến 14 và ga S8.30 của tuyến 8. Tuyến 14 chạy vào phía Hoàn Kiếm, tuyến 8 chạy ngang thành phố sang phía Tây.</p>
+  </div>
+  <div class="facts" id="metro-near"></div>
+  <div id="metro-map" role="img" aria-label="Bản đồ các tuyến metro quy hoạch và vị trí The Senique"></div>
+  <div class="legend" id="metro-legend"></div>
+  <p class="note">Ga được đánh mã theo bản đồ quy hoạch cộng đồng chia sẻ, chưa có tên chính thức. Khoảng cách tính theo đường chim bay; thời gian đi bộ ước 80 m/phút.</p>
+</div></section>
+
 <section class="blk" id="cu-dan"><div class="in">
   <div class="zalo">
     <img src="img/zalo-qr.jpg" alt="Mã QR tham gia nhóm Zalo cư dân Senique OCP1" loading="lazy">
@@ -465,7 +519,7 @@ footer .in{display:grid;gap:8px}
 </div></footer>
 
 <dialog class="lb" id="lb" aria-label="Xem ảnh">
-  <div class="bar"><span id="lb-cap"></span><span class="nav"><button type="button" id="lb-p" aria-label="Ảnh trước">‹</button><button type="button" id="lb-n" aria-label="Ảnh sau">›</button><button type="button" id="lb-x">Đóng</button></span></div>
+  <div class="bar"><span id="lb-cap"></span><span class="nav"><button type="button" id="lb-p" aria-label="Ảnh trước">‹</button><button type="button" id="lb-n" aria-label="Ảnh sau">›</button><a id="lb-open" class="lb-a" href="#" target="_blank" rel="noopener">Ảnh gốc</a><button type="button" id="lb-x">Đóng</button></span></div>
   <img id="lb-img" alt="">
 </dialog>
 
@@ -645,12 +699,14 @@ footer .in{display:grid;gap:8px}
   const shopKeys = IMG.filter(x => x[2] === "shop").map(x => x[0]);
   shopKeys.forEach(k => $("#gal-shop").appendChild(figure(k, shopKeys)));
 
-  const lb = $("#lb"); let lbList = [], lbI = 0;
-  function show(){ const k = lbList[lbI], v = IMGMAP[k]; $("#lb-img").src = src(k); $("#lb-img").alt = v.c; $("#lb-cap").textContent = v.c + " · " + T[v.t] + "  (" + (lbI+1) + "/" + lbList.length + ")"; }
-  function openLb(k, list){ lbList = list || [k]; lbI = Math.max(0, lbList.indexOf(k)); show(); if(lb.showModal) lb.showModal(); else lb.setAttribute("open",""); }
+  const lb = $("#lb"); let lbItems = [], lbI = 0;
+  function show(){ const it = lbItems[lbI]; $("#lb-img").src = it.src; $("#lb-img").alt = it.cap; $("#lb-open").href = it.src; $("#lb-cap").textContent = it.cap + (lbItems.length > 1 ? "  (" + (lbI+1) + "/" + lbItems.length + ")" : ""); $("#lb-p").hidden = $("#lb-n").hidden = lbItems.length < 2; }
+  function openItems(items, i){ if(!items.length) return; lbItems = items; lbI = i || 0; show(); if(lb.showModal) lb.showModal(); else lb.setAttribute("open",""); }
+  window.openItems = openItems;
+  function openLb(k, list){ list = list || [k]; openItems(list.map(x => ({ src: src(x), cap: IMGMAP[x].c + " · " + T[IMGMAP[x].t] })), Math.max(0, list.indexOf(k))); }
   $("#lb-x").addEventListener("click", () => lb.close());
-  $("#lb-p").addEventListener("click", () => { lbI = (lbI - 1 + lbList.length) % lbList.length; show(); });
-  $("#lb-n").addEventListener("click", () => { lbI = (lbI + 1) % lbList.length; show(); });
+  $("#lb-p").addEventListener("click", () => { lbI = (lbI - 1 + lbItems.length) % lbItems.length; show(); });
+  $("#lb-n").addEventListener("click", () => { lbI = (lbI + 1) % lbItems.length; show(); });
   lb.addEventListener("click", e => { if(e.target === lb) lb.close(); });
   lb.addEventListener("keydown", e => { if(e.key === "ArrowLeft") $("#lb-p").click(); if(e.key === "ArrowRight") $("#lb-n").click(); });
 
@@ -695,12 +751,22 @@ footer .in{display:grid;gap:8px}
     ["p","Penthouse 4PN","PH2.01 (Premier)","431,5","451,3","37","Premier: căn 01","—", null],
     ["p","Penthouse 4PN","PH2.02 (Premier)","428,5","449,0","37","Premier: căn 02","—", null]
   ];
+  const LAYOUT = code => {
+    const b = code.replace(/M$/, "").split(" ")[0];
+    const mirror = /M$/.test(code) ? " (căn " + code + " là bản đối xứng)" : "";
+    if(/^DUP/.test(b)) return [{src:"img/layout/" + b + "-L1.jpg", cap:"Layout " + b + " · tầng dưới" + mirror},{src:"img/layout/" + b + "-L2.jpg", cap:"Layout " + b + " · tầng trên" + mirror}];
+    if(/^[ABCD]\d\.\d\d$/.test(b)) return [{src:"img/layout/" + b + ".jpg", cap:"Layout " + b + mirror}];
+    return [];
+  };
   const fmt = v => typeof v === "number" ? v.toLocaleString("vi-VN",{minimumFractionDigits:1}) + " m²" : v + " m²";
   chips($("#f-br"), [["all","Tất cả"],["1","1PN"],["2","2PN"],["3","3PN"],["4","4PN"],["d","Duplex"],["p","Penthouse"]], "br", renderTypes);
   function renderTypes(){
     const tb = $("#types"); tb.textContent = "";
     TYPES.filter(t => state.br === "all" || t[0] === state.br).forEach(t => {
       const tr = document.createElement("tr"); if(t[10]) tr.className = "hl";
+      const lt = document.createElement("td"); const items = LAYOUT(t[2]);
+      if(items.length){ const b = document.createElement("button"); b.type = "button"; b.className = "lbtn"; b.textContent = "Xem"; b.addEventListener("click", () => openItems(items, 0)); lt.appendChild(b); } else lt.textContent = "—";
+      tr.appendChild(lt);
       [[t[1]],[t[2]],[fmt(t[3]),"num"],[fmt(t[4]),"num"],[t[5]],[t[6],"small"],[t[7],"small"]].forEach(([v,c]) => { const td = document.createElement("td"); if(c) td.className = c; td.textContent = v; tr.appendChild(td); });
       tb.appendChild(tr);
     });
@@ -742,7 +808,14 @@ footer .in{display:grid;gap:8px}
     const b = document.createElement("b"); b.textContent = t[1] + " · " + code;
     const p = document.createElement("p"); p.className = "note";
     p.textContent = "Thông thủy " + fmt(t[3]) + " · tim tường " + fmt(t[4]) + (extra ? " · " + extra : "");
-    d.append(b, p); host.appendChild(d);
+    d.append(b, p);
+    const items = LAYOUT(code);
+    if(items.length){
+      const lay = document.createElement("div"); lay.className = "lay";
+      items.forEach((it, i) => { const bt = document.createElement("button"); bt.type = "button"; bt.setAttribute("aria-label", "Xem " + it.cap); const im = document.createElement("img"); im.src = it.src; im.alt = it.cap; im.loading = "lazy"; bt.appendChild(im); bt.addEventListener("click", () => openItems(items, i)); lay.appendChild(bt); });
+      d.appendChild(lay);
+    }
+    host.appendChild(d);
   }
   function find(){
     const tw = $("#f-t").value, f = parseInt($("#f-f").value,10), u = parseInt($("#f-u").value,10);
@@ -774,6 +847,82 @@ footer .in{display:grid;gap:8px}
   }
   ["#f-t","#f-f","#f-u"].forEach(s => $(s).addEventListener("input", find));
   find();
+
+  /* ---------- ảnh tài liệu: thiết kế, shop ---------- */
+  function docGal(host, list){
+    const items = list.map(([s,c]) => ({src:s, cap:c}));
+    list.forEach(([s,c], i) => {
+      const f = document.createElement("figure"); f.tabIndex = 0; f.setAttribute("role","button"); f.setAttribute("aria-label","Xem lớn: " + c);
+      const img = document.createElement("img"); img.src = s; img.alt = c; img.loading = "lazy";
+      const cap = document.createElement("figcaption"); const sp = document.createElement("span"); sp.textContent = c; cap.appendChild(sp);
+      f.append(img, cap);
+      f.addEventListener("click", () => openItems(items, i));
+      f.addEventListener("keydown", ev => { if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); openItems(items, i); } });
+      host.appendChild(f);
+    });
+  }
+  docGal($("#gal-design"), [
+    ["img/design/design-1.jpg","Mặt bằng nguyên bản: 30 căn/tầng"],
+    ["img/design/design-2.jpg","Mặt bằng tinh chỉnh: 10–12 căn mỗi cánh"],
+    ["img/design/design-3.jpg","Căn nào cũng có tiền sảnh"],
+    ["img/design/design-4.jpg","Phòng tắm retrofittable cho căn từ 81 m²"],
+    ["img/design/design-5.jpg","Duplex góc 2 mặt thoáng"]
+  ]);
+  docGal($("#gal-shopplan"), [
+    ["img/plan/shop-siteplan.jpg","Tổng mặt bằng và số shop từng tòa"],
+    ["img/plan/shop-plan.jpg","Mặt bằng shop khối đế"],
+    ["img/plan/shop-units.jpg","Mặt bằng shop điển hình"]
+  ]);
+
+  /* ---------- xem mặt bằng tầng ---------- */
+  const PV = {
+    s1: [["e2","Tầng 2–18 (chẵn)"],["o3","Tầng 3–19 (lẻ)"],["f20","Tầng 20"],["f21","Tầng 21, 23"],["f22","Tầng 22"],["e24","Tầng 24–34 (chẵn)"],["o25","Tầng 25–35 (lẻ)"],["f36","Tầng 36"],["f37","Tầng 37"]],
+    sp: [["e2","Tầng 2–18 (chẵn)"],["o3","Tầng 3–19 (lẻ)"],["f20","Tầng 20 (tiện ích)"],["f21","Tầng 21"],["e22","Tầng 22–34 (chẵn)"],["o23","Tầng 23–35 (lẻ)"],["f36","Tầng 36"],["f37","Tầng 37"]]
+  };
+  PV.s2 = PV.s1;
+  const pvT = $("#pv-t"), pvG = $("#pv-g");
+  function pvGroups(){ pvG.textContent = ""; PV[pvT.value].forEach(([v,l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; pvG.appendChild(o); }); pvShow(); }
+  function pvCur(v){ const name = {s1:"Senique I", s2:"Senique II", sp:"Senique Premier"}[pvT.value]; const g = PV[pvT.value].find(x => x[0] === v); return { src: "img/plan/" + pvT.value + "-" + v + ".jpg", cap: "Mặt bằng " + name + " · " + (g ? g[1] : "") }; }
+  function pvShow(){ const c = pvCur(pvG.value); $("#pv-img").src = c.src; $("#pv-img").alt = c.cap; }
+  pvT.addEventListener("change", pvGroups); pvG.addEventListener("change", pvShow);
+  $("#pv-btn").addEventListener("click", () => {
+    const list = PV[pvT.value];
+    openItems(list.map(([v]) => pvCur(v)), Math.max(0, list.findIndex(x => x[0] === pvG.value)));
+  });
+  pvGroups();
+
+  /* ---------- metro ---------- */
+  const HOME = [21.00209, 105.95045];
+  const ST = "14.01,21.0868,105.7843;14.02,21.0860,105.7937;14.03,21.0850,105.8045;14.04,21.0837,105.8143;14.05,21.0789,105.8198;14.06,21.0654,105.8309;14.07,21.0550,105.8371;14.08,21.0495,105.8415;14.09,21.0427,105.8486;14.10,21.0336,105.8555;14.11,21.0241,105.8571;14.12,21.0165,105.8593;14.13,21.0066,105.8666;14.14,21.0181,105.8855;14.15,21.0266,105.8981;14.16,21.0233,105.9042;14.17,21.0158,105.9092;14.18,21.0041,105.9144;14.19,20.9981,105.9186;14.20,20.9902,105.9223;14.21,20.9829,105.9256;14.22,20.9795,105.9356;14.23,20.9918,105.9446;14.24,20.9983,105.9516;14.25,21.0042,105.9606;14.26,21.0139,105.9633;1.14,21.0405,105.8496;1.13,21.0278,105.8418;1.10,20.9821,105.8406;1.27,21.2124,105.8047;1.26,21.1812,105.8709;1.25,21.1591,105.8710;1.24,21.1521,105.8734;1.23,21.1367,105.8875;1.22,21.1234,105.9006;1.21,21.1144,105.9097;1.20,21.1010,105.9236;1.18,21.0801,105.9128;1.17,21.0653,105.8979;1.16,21.0560,105.8886;1.15,21.0501,105.8770;1.12,21.0050,105.8411;1.11,20.9955,105.8408;1.09,20.9699,105.8409;1.08,20.9523,105.8437;1.07,20.9349,105.8420;1.05,20.8873,105.8576;1.04,20.8766,105.8620;1.03,20.8566,105.8624;1.02,20.8509,105.8326;1.06,20.9161,105.8426;1.01,20.8454,105.8230;1.19,21.0893,105.9210;1.28,21.2160,105.7923;1.27A,21.2079,105.8203;1.26A,21.1877,105.8527;10.02,21.0715,105.8094;10.04,21.0572,105.7976;10.05,21.0542,105.7892;10.06,21.0536,105.7797;10.07,21.0461,105.7784;10.08,21.0370,105.7714;10.09,21.0247,105.7672;10.10,21.0176,105.7670;10.11,21.0184,105.7832;10.12,21.0175,105.7935;10.13,21.0118,105.7980;10.14,21.0036,105.8073;10.15,20.9972,105.8138;10.16,20.9894,105.8244;10.17,20.9835,105.8329;10.18,20.9836,105.8482;10.19,20.9836,105.8555;10.20,20.9837,105.8643;10.21,20.9938,105.8718;10.22,21.0017,105.8702;10.23,21.0199,105.8863;10.24,21.0290,105.8808;10.25,21.0385,105.8831;10.26,21.0481,105.8886;10.27,21.0580,105.8843;10.28,21.0655,105.8859;10.29,21.0735,105.8903;10.30,21.0839,105.8847;10.31,21.0945,105.8755;10.01,21.0840,105.8154;10.03,21.0641,105.8030;8.01,21.0049,105.4763;8.02,21.0051,105.5061;8.05,21.0443,105.5773;8.06,21.0451,105.6006;8.07,21.0463,105.6288;8.08,21.0459,105.6665;8.09,21.0463,105.6956;8.11,21.0466,105.7195;8.12,21.0460,105.7344;8.13,21.0504,105.7609;8.14,21.0479,105.7755;8.15,21.0462,105.7903;8.16,21.0461,105.8008;8.17,21.0422,105.8065;8.18,21.0287,105.7992;8.19,21.0219,105.8063;8.20,21.0180,105.8204;8.21,21.0047,105.8333;8.22,20.9952,105.8425;8.23,20.9955,105.8509;8.24,20.9948,105.8595;8.25,20.9929,105.8723;8.26,20.9900,105.8830;8.27,20.9844,105.8913;8.28,20.9906,105.9214;8.29,21.0006,105.9394;8.30,21.0060,105.9495;8.31,21.0148,105.9594;8.32,21.0206,105.9799;8.33,21.0247,106.0003;8A.01,21.0252,106.0237;8A.02,21.0244,106.0454;8A.03,21.0222,106.0613;8A.04,21.0172,106.0763;8A.05,21.0105,106.0962;8A.06,21.0027,106.1111;8A.07,21.0016,106.1278;8A.08,21.0086,106.1492;8A.09,21.0169,106.1595;8A.10,21.0261,106.1654;8A.11,21.0345,106.1774;8A.12,21.0378,106.1875;8A.13,21.0401,106.2001;8A.14,21.0484,106.2204;8.12a,21.0460,105.7470;8.10,21.0462,105.7070;8.03,21.0181,105.5200;8.04,21.0339,105.5462;2.01,21.1938,105.8338;2.02,21.1811,105.8271;2.03,21.1688,105.8205;2.04,21.1481,105.8188;2.05,21.1355,105.8189;2.06,21.1232,105.8190;2.07,21.1138,105.8190;2.08,21.0838,105.8008;2.09,21.0758,105.8008;2.10,21.0745,105.7955;2.11,21.0656,105.7976;2.12,21.0592,105.7976;2.13,21.0462,105.8025;2.14,21.0427,105.8160;2.15,21.0415,105.8294;2.16,21.0421,105.8351;2.17,21.0400,105.8455;2.18,21.0288,105.8538;2.19,21.0211,105.8522;2.20,21.0144,105.8517;2.21,21.0084,105.8460;2.22,21.0072,105.8350;2.23,21.0054,105.8227;2.24,20.9985,105.8139;2.25,20.9890,105.8002;2.26,20.9647,105.7981;2.27,20.9545,105.7882;2.28,20.9470,105.7856;2.29,20.9289,105.7837;2.30,20.9192,105.7841;2.31,20.9068,105.7875;2.32,20.8989,105.7911;2.33,20.8838,105.7980;2.34,20.8742,105.8025;2.35,20.8557,105.8148;2.36,20.8446,105.8226;2.37,20.8315,105.8319;2.01A,21.2155,105.7911;2.01B,21.2116,105.8041;2.38,20.8240,105.8415;2.25A,20.9766,105.8004;8B.01A,20.9876,105.9283;8B.01,20.9746,105.9285;8B.02,20.9615,105.9324;8B.03,20.9496,105.9411;8B.04,20.9496,105.9606;8B.05,20.9528,105.9751;8B.06,20.9591,105.9864";
+  const LC = { "1":"#e53935", "2":"#2e7d32", "8":"#8e24aa", "8A":"#c158dc", "8B":"#d81b60", "10":"#ef6c00", "14":"#1e88e5" };
+  const seen = new Set();
+  const stations = ST.split(";").map(s => { const [c,a,b] = s.split(","); return { code:"S"+c, line:c.split(".")[0], n:c.split(".")[1], lat:+a, lng:+b }; }).filter(s => !seen.has(s.code) && seen.add(s.code));
+  const hav = (a,b,c,d) => { const R=6371000, r=Math.PI/180, x=(c-a)*r, y=(d-b)*r; const h=Math.sin(x/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
+  stations.forEach(s => s.d = hav(HOME[0],HOME[1],s.lat,s.lng));
+  const byLine = {}; stations.forEach(s => (byLine[s.line] = byLine[s.line] || []).push(s));
+  const nearest = Object.entries(byLine).map(([l, arr]) => arr.reduce((m,s) => s.d < m.d ? s : m)).sort((a,b) => a.d - b.d);
+  const nearHost = $("#metro-near");
+  nearest.slice(0,4).forEach(s => {
+    const f = document.createElement("div"); f.className = "fact";
+    const b = document.createElement("b"); b.textContent = s.d < 1000 ? Math.round(s.d/10)*10 + " m" : (s.d/1000).toFixed(1).replace(".",",") + " km";
+    const sp = document.createElement("span"); sp.textContent = "Tuyến " + s.line + " · ga " + s.code + " · đi bộ ~" + Math.round(s.d/80) + " phút";
+    f.append(b, sp); nearHost.appendChild(f);
+  });
+  const leg = $("#metro-legend");
+  Object.keys(LC).forEach(l => { if(!byLine[l]) return; const s = document.createElement("span"); const i = document.createElement("i"); i.style.background = LC[l]; s.append(i, document.createTextNode("Tuyến " + l)); leg.appendChild(s); });
+  function initMap(){
+    if(!window.L){ $("#metro-map").textContent = ""; return; }
+    const map = L.map("metro-map", { scrollWheelZoom:false }).setView(HOME, 12);
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom:18, attribution:"Tiles © Esri" }).addTo(map);
+    Object.entries(byLine).forEach(([l, arr]) => {
+      const main = arr.filter(s => /^\d+$/.test(s.n)).sort((a,b) => +a.n - +b.n);
+      L.polyline(main.map(s => [s.lat, s.lng]), { color: LC[l] || "#555", weight: 4, opacity: .85 }).addTo(map);
+      arr.forEach(s => L.circleMarker([s.lat, s.lng], { radius: s.d < 1000 ? 7 : 4, color: "#fff", weight: 1.5, fillColor: LC[l] || "#555", fillOpacity: 1 }).bindTooltip("Tuyến " + l + " · " + s.code + " · cách dự án " + (s.d/1000).toFixed(1).replace(".",",") + " km").addTo(map));
+    });
+    L.circle(HOME, { radius: 500, color: "#bf4569", weight: 1, fillOpacity: .06 }).addTo(map);
+    L.circleMarker(HOME, { radius: 9, color: "#fff", weight: 2, fillColor: "#bf4569", fillOpacity: 1 }).bindTooltip("The Senique Hanoi", { permanent: true, direction: "top", offset: [0,-8] }).addTo(map);
+  }
+  initMap();
 
   renderAm(); renderGal();
 })();
