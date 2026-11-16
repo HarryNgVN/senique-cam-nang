@@ -294,16 +294,16 @@ footer .in{display:grid;gap:8px}
   <div>
     <div class="eyebrow">Loại căn</div>
     <h2>Các loại căn hộ</h2>
-    <p class="lede">Ba tòa dùng chung bộ mã căn 1–4 phòng ngủ và Duplex. Riêng Premier có thêm Penthouse ở tầng 36–37. Căn 3PN lớn nhất dự án là C5.01 ở tầng 36, thông thủy 107,5 m².</p>
+    <p class="lede">Ba tòa dùng chung bộ mã căn 1–4 phòng ngủ và Duplex. Số căn đánh giống nhau ở cả 3 tòa: Senique I và II giống hệt nhau, Premier khác ở tầng 20 (toàn tiện ích) và tầng 36–37 (Penthouse). Căn 3PN lớn nhất là C5.01 (căn 16) và C5.01M (căn 13) ở tầng 36 của tòa I và tòa II, thông thủy 107,5 m².</p>
   </div>
   <div class="chips" id="f-br" role="group" aria-label="Lọc theo số phòng ngủ"></div>
   <div class="tw">
     <table>
-      <thead><tr><th>Loại</th><th>Mã</th><th class="num">Thông thủy</th><th class="num">Tim tường</th><th>Tầng</th><th>Căn số · Senique I</th><th>Căn số · Senique II</th></tr></thead>
+      <thead><tr><th>Loại</th><th>Mã</th><th class="num">Thông thủy</th><th class="num">Tim tường</th><th>Tầng</th><th>Căn số · mặt bằng gốc</th><th>Căn số · đối xứng (mã M)</th></tr></thead>
       <tbody id="types"></tbody>
     </table>
   </div>
-  <p class="note">Mã có thêm chữ M (ví dụ B2.02M) là mặt bằng đối xứng, diện tích như căn gốc. Với Duplex và Penthouse, diện tích ghi theo tầng dưới + tầng trên. Nguồn: brochure Senique I-II và slide Senique Premier.</p>
+  <p class="note">Mã có thêm chữ M (ví dụ B2.02M) là mặt bằng đối xứng, diện tích như căn gốc. Số căn trong bảng áp dụng cho cả Senique I và II. Với Duplex và Penthouse, diện tích ghi theo tầng dưới + tầng trên. Nguồn: brochure Senique I-II và slide Senique Premier.</p>
 
   <div class="two">
     <div class="card">
@@ -313,18 +313,19 @@ footer .in{display:grid;gap:8px}
         <div class="fl"><span class="lv">20</span><span class="bar">Tầng tiện ích, có căn kèm sân vườn và khu lánh nạn</span></div>
         <div class="fl"><span class="lv">21–23</span><span class="bar">2PN · 3PN · Duplex</span></div>
         <div class="fl"><span class="lv">24–35</span><span class="bar">2PN · 3PN · Duplex, chia tầng chẵn và lẻ</span></div>
-        <div class="fl"><span class="lv">36</span><span class="bar ph">3PN lớn C4.01, C5.01 · Duplex DUP3.01</span></div>
+        <div class="fl"><span class="lv">36</span><span class="bar ph">Căn 13–16: C5.01M, C4.01M, C4.01, C5.01 (3PN 97–107,5 m²) · Duplex DUP3.01</span></div>
         <div class="fl"><span class="lv">37</span><span class="bar ph">4PN D1.01–D1.03 · tiện ích tầng thượng</span></div>
       </div>
     </div>
     <div class="card">
-      <h3><span class="tag t-sp">Senique Premier</span> Mặt bằng tầng điển hình (2–18 chẵn)</h3>
+      <h3><span class="tag t-sp">Senique Premier</span> Mặt bằng theo tầng</h3>
+      <div class="finder"><label for="sp-group">Nhóm tầng<select id="sp-group"></select></label></div>
       <div class="tw" style="border:0">
         <table>
           <tbody id="sp-floor"></tbody>
         </table>
       </div>
-      <p class="note">Tầng 36: căn 13, 14 là Penthouse PH1 (tầng dưới). Tầng 37: căn 01 PH2.01, căn 02 PH2.02.</p>
+      <p class="note">Tầng 20 Premier là tầng tiện ích, không có căn hộ. Khác S1/S2: tầng 22 đã có Duplex DUP2.01, tầng 23 dùng mặt bằng nhóm 25–35, tầng 36–37 là Penthouse. Căn Duplex và Penthouse ghi diện tích tầng dưới; tầng trên không đánh số căn riêng.</p>
     </div>
   </div>
 </div></section>
@@ -333,12 +334,12 @@ footer .in{display:grid;gap:8px}
   <div>
     <div class="eyebrow">Tra căn</div>
     <h2>Căn của tôi là loại nào?</h2>
-    <p class="lede">Chọn tòa, nhập tầng và số căn (ví dụ tầng 36, căn 13). Áp dụng cho Senique I và II theo bảng trong brochure.</p>
+    <p class="lede">Chọn tòa, nhập tầng và số căn (ví dụ tầng 36, căn 13). Senique I và II tra theo bảng căn trong brochure, Premier tra theo mặt bằng từng tầng trong slide Premier.</p>
   </div>
   <div class="card">
     <div class="finder">
       <label for="f-t">Tòa
-        <select id="f-t"><option value="s1">Senique I</option><option value="s2">Senique II</option></select>
+        <select id="f-t"><option value="s1">Senique I</option><option value="s2">Senique II</option><option value="sp">Senique Premier</option></select>
       </label>
       <label for="f-f">Tầng<input id="f-f" type="number" inputmode="numeric" min="2" max="37" value="36"></label>
       <label for="f-u">Số căn<input id="f-u" type="number" inputmode="numeric" min="1" max="24" value="13"></label>
@@ -668,18 +669,18 @@ footer .in{display:grid;gap:8px}
       {s1:[[24,E],[20,[...O,...O2]],[18,E2],[16,[20]],[22,[21,23]]], s2:[[17,[...E,21,23]],[13,[...O,...E2]],[9,[20]],[15,O2]]}],
     ["2","2PN lớn","B3.01",81.3,88.4,"02–23","07 (chẵn 02–18, 21, 23) · 05 (lẻ 03–19, 22) · 03 (tầng 20)","10 (chẵn 02–18, 21, 23) · 08 (lẻ 03–19, 22) · 06 (tầng 20)",
       {s1:[[7,[...E,21,23]],[5,[...O,22]],[3,[20]]], s2:[[10,[...E,21,23]],[8,[...O,22]],[6,[20]]]}],
-    ["3","3PN nhỏ","C2.02",83.2,90.3,"02–19, 21–36","16 (chẵn 02–18, 21, 23) · 12 (lẻ 03–19, 22, chẵn 24–36) · 14 (lẻ 25–35)","như Senique I",
-      {s1:[[16,[...E,21,23]],[12,[...O,22,...E3]],[14,O2]], s2:[[16,[...E,21,23]],[12,[...O,22,...E3]],[14,O2]]}],
+    ["3","3PN nhỏ","C2.02",83.2,90.3,"02–19, 21–36","16 (chẵn 02–18, 21, 23) · 12 (lẻ 03–19, 22, chẵn 24–36) · 14 (lẻ 25–35)","—",
+      {s1:[[16,[...E,21,23]],[12,[...O,22,...E3]],[14,O2]], s2:[]}],
     ["3","3PN nhỏ","C1.01",84.9,92.1,"21–35","21 (21, 23) · 17 (chẵn 22–34) · 19 (lẻ 25–35)","18 (21, 23) · 14 (chẵn 22–34) · 16 (lẻ 25–35)",
       {s1:[[21,[21,23]],[17,E2],[19,O2]], s2:[[18,[21,23]],[14,E2],[16,O2]]}],
-    ["3","3PN nhỏ","C2.01",85.9,93.1,"02–19, 21–36","01","01",
-      {s1:[[1,[...r(2,19),...r(21,36)]]], s2:[[1,[...r(2,19),...r(21,36)]]]}],
+    ["3","3PN nhỏ","C2.01",85.9,93.1,"02–19, 21–36","01","—",
+      {s1:[[1,[...r(2,19),...r(21,36)]]], s2:[]}],
     ["3","3PN vừa","C3.02",96.8,104.9,"02–37","08 (chẵn 02–18, 21, 23) · 06 (lẻ 03–19, 22, chẵn 24–36) · 04 (tầng 20) · 07 (lẻ 25–35) · 03 (tầng 37)","09 (chẵn 02–18, 21, 23) · 07 (lẻ 03–19, 22, chẵn 24–36) · 05 (tầng 20) · 08 (lẻ 25–35) · 04 (tầng 37)",
       {s1:[[8,[...E,21,23]],[6,[...O,22,...E3]],[4,[20]],[7,O2],[3,[37]]], s2:[[9,[...E,21,23]],[7,[...O,22,...E3]],[5,[20]],[8,O2],[4,[37]]]}],
-    ["3","3PN vừa","C4.01",97.3,104.8,"36","14","15", {s1:[[14,[36]]], s2:[[15,[36]]]}],
+    ["3","3PN vừa","C4.01",97.3,104.8,"36","15","14", {s1:[[15,[36]]], s2:[[14,[36]]]}],
     ["3","3PN lớn","C3.01",101.5,109.9,"02–36","06 (chẵn 02–18, 21, 23, lẻ 25–35) · 02 (tầng 20) · 04 (lẻ 03–19, 22, chẵn 24–36)","11 (chẵn 02–18, 21, 23) · 07 (tầng 20) · 09 (lẻ 03–19, 22, 24–36)",
       {s1:[[6,[...E,21,23,...O2]],[2,[20]],[4,[...O,22,...E3]]], s2:[[11,[...E,21,23]],[7,[20]],[9,[...O,22,...r(24,36)]]]}],
-    ["3","3PN lớn nhất","C5.01",107.5,115.8,"36","13","16", {s1:[[13,[36]]], s2:[[16,[36]]]}, false, true],
+    ["3","3PN lớn nhất","C5.01",107.5,115.8,"36","16","13", {s1:[[16,[36]]], s2:[[13,[36]]]}, false, true],
     ["4","4PN vừa","D1.03",153.6,162.6,"37","08","07", {s1:[[8,[37]]], s2:[[7,[37]]]}],
     ["4","4PN lớn","D1.02",177.5,187.6,"37","02","05", {s1:[[2,[37]]], s2:[[5,[37]]]}],
     ["4","4PN rất lớn","D1.01",187.4,197.5,"37","01","06", {s1:[[1,[37]]], s2:[[6,[37]]]}],
@@ -687,8 +688,8 @@ footer .in{display:grid;gap:8px}
       {s1:[[4,[...E,21,23,...O2]]], s2:[[13,[...E,21,23]],[11,O2]]}, true],
     ["d","Duplex vừa","DUP1.01","73,4 + 60,4 = 133,7","80,9 + 66,7 = 147,6","Tầng dưới: chẵn 02–18, 21, 23, lẻ 25–35","03","14 (chẵn 02–18, 21, 23) · 12 (lẻ 25–35)",
       {s1:[[3,[...E,21,23,...O2]]], s2:[[14,[...E,21,23]],[12,O2]]}, true],
-    ["d","Duplex vừa","DUP2.01","81,5 + 65,9 = 147,4","89,0 + 72,9 = 161,9","Tầng dưới: lẻ 25–33","05","08",
-      {s1:[[5,r(25,33,2)]], s2:[[8,r(25,33,2)]]}, true],
+    ["d","Duplex vừa","DUP2.01","81,5 + 65,9 = 147,4","89,0 + 72,9 = 161,9","Tầng dưới: chẵn 24–34","05","08",
+      {s1:[[5,r(24,34,2)]], s2:[[8,r(24,34,2)]]}, true],
     ["d","Duplex vừa","DUP3.01","81,5 + 108,1 = 189,5","89,0 + 116,4 = 205,4","36–37","05","08", {s1:[[5,[36]]], s2:[[8,[36]]]}, true],
     ["p","Penthouse 4PN","PH1 (Premier)","207,2 + 144,5 = 351,7","223,0 + 156,3 = 379,3","36–37","Premier: căn 13, 14","—", null],
     ["p","Penthouse 4PN","PH2.01 (Premier)","431,5","451,3","37","Premier: căn 01","—", null],
@@ -706,37 +707,70 @@ footer .in{display:grid;gap:8px}
   }
   renderTypes();
 
-  /* Premier tầng điển hình 2-18 chẵn */
-  const SPF = [["01","3PN nhỏ C2.01","85,9"],["02","2PN nhỏ B2.02","53,5"],["03","Duplex vừa DUP1.01","73,4 (tầng dưới)"],["04","Duplex nhỏ DUP1.02","63,3 (tầng dưới)"],["05","2PN nhỏ B2.02M","53,5"],["06","3PN lớn C3.01","101,5"],["07","2PN lớn B3.01","81,3"],["08","3PN vừa C3.02","96,8"],["09","3PN vừa C3.02M","96,8"],["10","2PN lớn B3.01M","81,3"],["11","3PN lớn C3.01M","101,5"],["12","2PN nhỏ B2.02","53,5"],["13","Duplex nhỏ DUP1.02M","63,3 (tầng dưới)"],["14","Duplex vừa DUP1.01M","73,4 (tầng dưới)"],["15","2PN nhỏ B2.02M","53,5"],["16","3PN nhỏ C2.02","83,2"],["17","2PN vừa B1.01M","64,3"],["18","1PN A1.01M","42,0"],["19","1PN A1.01","42,0"],["20","2PN nhỏ B2.01M","54,4"],["21","2PN nhỏ B2.01","54,4"],["22","1PN A1.01M","42,0"],["23","1PN A1.01","42,0"],["24","2PN vừa B1.01","64,3"]];
-  const spb = $("#sp-floor");
-  SPF.forEach(([u,t,a]) => { const tr = document.createElement("tr"); [["Căn "+u],[t],[a+" m²","num"]].forEach(([v,c]) => { const td = document.createElement("td"); if(c) td.className = c; td.textContent = v; tr.appendChild(td); }); spb.appendChild(tr); });
+  /* Premier: mặt bằng từng nhóm tầng, đọc từ slide Senique Premier */
+  const pm = s => Object.fromEntries(s.split(" ").map((c,i) => [i+1, c]).filter(([,c]) => c !== "-"));
+  const PM = {
+    e2:  pm("C2.01 B2.02 DUP1.01 DUP1.02 B2.02M C3.01 B3.01 C3.02 C3.02M B3.01M C3.01M B2.02 DUP1.02M DUP1.01M B2.02M C2.02 B1.01M A1.01M A1.01 B2.01M B2.01 A1.01M A1.01 B1.01"),
+    o3:  pm("C2.01 B2.02 B2.02M C3.01 B3.01 C3.02 C3.02M B3.01M C3.01M B2.02 B2.02M C2.02 B1.01M A1.01M A1.01 B2.01M B2.01 A1.01M A1.01 B1.01"),
+    f21: pm("C2.01 B2.02 DUP1.01 DUP1.02 B2.02M C3.01 B3.01 C3.02 C3.02M B3.01M C3.01M B2.02 DUP1.02M DUP1.01M B2.02M C2.02 B1.01M C1.01M B2.01M B2.01 C1.01 B1.01"),
+    e22: pm("C2.01 B2.02 B2.02M C3.01 DUP2.01 C3.02 C3.02M DUP2.01M C3.01M B2.02 B2.02M C2.02 B1.01M C1.01M B2.01M B2.01 C1.01 B1.01"),
+    o23: pm("C2.01 B2.02 DUP1.01 DUP1.02 B2.02M C3.01 C3.02 C3.02M C3.01M B2.02 DUP1.02M DUP1.01M B2.02M C2.02 B1.01M C1.01M B2.01M B2.01 C1.01 B1.01"),
+    f36: pm("C2.01 B2.02 B2.02M C3.01 DUP3.01 C3.02 C3.02M DUP3.01M C3.01M B2.02 B2.02M C2.02 PH1M PH1"),
+    f37: pm("PH2.01 PH2.02")
+  };
+  const PGROUPS = [["e2","Tầng 2–18 (chẵn)"],["o3","Tầng 3–19 (lẻ)"],["f21","Tầng 21"],["e22","Tầng 22–34 (chẵn)"],["o23","Tầng 23–35 (lẻ)"],["f36","Tầng 36"],["f37","Tầng 37"]];
+  const pGroup = f => f >= 2 && f <= 18 && f % 2 === 0 ? "e2" : f >= 3 && f <= 19 && f % 2 ? "o3" : f === 21 ? "f21" : f >= 22 && f <= 34 && f % 2 === 0 ? "e22" : f >= 23 && f <= 35 && f % 2 ? "o23" : f === 36 ? "f36" : f === 37 ? "f37" : null;
+  const typeOf = code => { const base = code.replace(/M$/, ""); return TYPES.find(t => t[2] === base || t[2].startsWith(base + " ")); };
+  const isDup = code => /^DUP/.test(code);
+
+  const spSel = $("#sp-group"), spb = $("#sp-floor");
+  PGROUPS.forEach(([v,l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; spSel.appendChild(o); });
+  function renderSp(){
+    spb.textContent = "";
+    Object.entries(PM[spSel.value]).forEach(([u, code]) => {
+      const t = typeOf(code); const tr = document.createElement("tr");
+      const a = t ? fmt(t[3]) + (isDup(code) || /^PH1/.test(code) ? " (2 tầng)" : "") : "";
+      [["Căn " + String(u).padStart(2,"0")],[(t ? t[1] + " · " : "") + code],[a,"num"]].forEach(([v,c]) => { const td = document.createElement("td"); if(c) td.className = c; td.textContent = v; tr.appendChild(td); });
+      spb.appendChild(tr);
+    });
+  }
+  spSel.addEventListener("change", renderSp); renderSp();
 
   /* tra căn */
+  function showRes(host, t, code, extra){
+    const d = document.createElement("div"); d.className = "res";
+    const b = document.createElement("b"); b.textContent = t[1] + " · " + code;
+    const p = document.createElement("p"); p.className = "note";
+    p.textContent = "Thông thủy " + fmt(t[3]) + " · tim tường " + fmt(t[4]) + (extra ? " · " + extra : "");
+    d.append(b, p); host.appendChild(d);
+  }
   function find(){
     const tw = $("#f-t").value, f = parseInt($("#f-f").value,10), u = parseInt($("#f-u").value,10);
     const host = $("#f-res"); host.textContent = "";
     if(!f || !u){ return; }
-    const hits = [];
+    const none = msg => { const p = document.createElement("p"); p.className = "note"; p.textContent = msg; host.appendChild(p); };
+    if(tw === "sp"){
+      if(f === 20){ none("Tầng 20 của Premier là tầng tiện ích, không có căn hộ."); return; }
+      const g = pGroup(f); const code = g && PM[g][u];
+      if(code){ showRes(host, typeOf(code), code, isDup(code) ? "tầng dưới của căn Duplex" : /^PH1/.test(code) ? "Penthouse 2 tầng 36–37" : ""); return; }
+      const g0 = pGroup(f-1); const up = g0 && PM[g0][u];
+      if(up && (isDup(up) || /^PH1/.test(up))){ showRes(host, typeOf(up), up, "tầng trên của căn 2 tầng (tầng dưới là tầng " + (f-1) + ")"); return; }
+      none("Premier không có căn " + String(u).padStart(2,"0") + " ở tầng " + f + ". Kiểm tra lại số tầng, số căn.");
+      return;
+    }
+    const direct = [], upper = [];
     TYPES.forEach(t => {
       const d = t[8]; if(!d) return;
-      (d[tw]||[]).forEach(([unit, floors]) => {
+      [["s1",""],["s2","M"]].forEach(([k, suf]) => (d[k]||[]).forEach(([unit, floors]) => {
         if(unit !== u) return;
-        if(floors.includes(f)) hits.push([t, t[9] ? "tầng dưới của căn Duplex" : ""]);
-        else if(t[9] && floors.includes(f-1)) hits.push([t, "tầng trên của căn Duplex (tầng dưới là tầng " + (f-1) + ")"]);
-      });
+        const code = t[2] + suf;
+        if(floors.includes(f)) direct.push([t, code, t[9] ? "tầng dưới của căn Duplex" : ""]);
+        else if(t[9] && floors.includes(f-1)) upper.push([t, code, "tầng trên của căn Duplex (tầng dưới là tầng " + (f-1) + ")"]);
+      }));
     });
-    if(!hits.length){
-      const p = document.createElement("p"); p.className = "note";
-      p.textContent = "Không thấy căn " + String(u).padStart(2,"0") + " tầng " + f + " trong bảng của brochure. Kiểm tra lại số tầng, số căn hoặc xem mặt bằng tầng.";
-      host.appendChild(p); return;
-    }
-    hits.forEach(([t, extra]) => {
-      const d = document.createElement("div"); d.className = "res";
-      const b = document.createElement("b"); b.textContent = t[1] + " · " + t[2];
-      const p = document.createElement("p"); p.className = "note";
-      p.textContent = "Thông thủy " + fmt(t[3]) + " · tim tường " + fmt(t[4]) + (extra ? " · " + extra : "");
-      d.append(b, p); host.appendChild(d);
-    });
+    const hits = direct.length ? direct : upper;
+    hits.forEach(([t, code, x]) => showRes(host, t, code, x));
+    if(!hits.length) none("Không thấy căn " + String(u).padStart(2,"0") + " tầng " + f + " trong bảng của brochure. Kiểm tra lại số tầng, số căn.");
   }
   ["#f-t","#f-f","#f-u"].forEach(s => $(s).addEventListener("input", find));
   find();
