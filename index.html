@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Cẩm nang The Senique Hanoi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Tra cứu tiện ích, loại căn hộ và mặt bằng của 3 tòa The Senique Hanoi. Trang do nhóm chủ nhà tự tổng hợp.">
+<meta name="description" content="Tra cứu tiện ích, loại căn hộ, mặt bằng, shophouse của 3 tòa The Senique Hanoi. Trang do nhóm cư dân tự tổng hợp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap">
 <style>
-/* Layout: ảnh phối cảnh mở đầu, thanh mục lục dính, các khối nội dung một cột rộng 1080px; tra cứu tiện ích là trung tâm */
+/* Layout: ảnh phối cảnh mở đầu, thanh mục lục dính, các khối nội dung một cột rộng 1100px */
 :root{
   color-scheme:light;
   --bg:#f4f6f4; --surface:#ffffff; --ink:#16231d; --muted:#5a6a62; --line:#d8e1db;
   --leaf:#1e5442; --leaf-soft:#e2ede7; --lotus:#bf4569; --lotus-soft:#f7e3ea;
-  --s1:#2f6f8f; --s2:#9a6a2a; --sp:#7a3b5c;
+  --s1:#2f6f8f; --s2:#9a6a2a; --sp:#7a3b5c; --all:#1e5442;
   --f-display:"Lora",Georgia,"Times New Roman",serif;
   --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --r:12px;
@@ -23,11 +23,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0f1613; --surface:#16201b; --ink:#e3ebe6; --muted:#9aaaa2; --line:#2a3731;
   --leaf:#86c9aa; --leaf-soft:#1b3027; --lotus:#ef8aaa; --lotus-soft:#3a1f29;
-  --s1:#7fc0e0; --s2:#e2b46e; --sp:#e19cc0; color-scheme:dark}}
+  --s1:#7fc0e0; --s2:#e2b46e; --sp:#e19cc0; --all:#86c9aa; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0f1613; --surface:#16201b; --ink:#e3ebe6; --muted:#9aaaa2; --line:#2a3731;
   --leaf:#86c9aa; --leaf-soft:#1b3027; --lotus:#ef8aaa; --lotus-soft:#3a1f29;
-  --s1:#7fc0e0; --s2:#e2b46e; --sp:#e19cc0; color-scheme:dark}
+  --s1:#7fc0e0; --s2:#e2b46e; --sp:#e19cc0; --all:#86c9aa; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -35,27 +35,27 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);fo
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
 img{max-width:100%;display:block}
 [hidden]{display:none!important}
-.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.in{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{text-wrap:balance}
 h2{font-family:var(--f-display);font-weight:600;font-size:clamp(24px,4.5vw,32px);margin:0 0 6px;line-height:1.2}
 h3{font-size:16px;margin:0}
 p{margin:0}
 .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--lotus)}
-.lede{color:var(--muted);max-width:64ch}
+.lede{color:var(--muted);max-width:68ch}
 a{color:var(--leaf)}
 :focus-visible{outline:2px solid var(--lotus);outline-offset:2px}
 
-/* hero */
 .hero{position:relative;color:#fff;background:#1a2a23}
-.hero img{width:100%;height:clamp(320px,62vh,620px);object-fit:cover;opacity:.9}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,15,.05) 30%,rgba(10,20,15,.78))}
+.hero img{width:100%;height:clamp(320px,62vh,620px);object-fit:cover;opacity:.92}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,15,.05) 30%,rgba(10,20,15,.8))}
 .hero .cap{position:absolute;inset:auto 0 0 0;z-index:1;padding-block:28px}
 .hero h1{font-family:var(--f-display);font-weight:600;font-size:clamp(34px,7vw,64px);line-height:1.05;margin:4px 0 10px}
 .hero h1 em{font-style:italic;font-weight:500;color:#f4b9cb}
-.hero p{max-width:56ch;color:#e8efe9}
+.hero p{max-width:58ch;color:#e8efe9}
 .hero .eyebrow{color:#f4b9cb}
+.count{display:inline-flex;gap:8px;align-items:baseline;margin-top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;font-size:14px}
+.count b{font-size:20px;font-variant-numeric:tabular-nums}
 
-/* nav */
 nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 nav.toc .in{display:flex;gap:4px;overflow-x:auto;padding-block:8px}
 nav.toc a{flex:0 0 auto;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px;padding:7px 12px;border-radius:999px}
@@ -64,83 +64,95 @@ nav.toc a:hover{background:var(--leaf-soft);color:var(--leaf)}
 section.blk{padding-block:44px;border-bottom:1px solid var(--line)}
 section.blk>.in{display:grid;gap:22px}
 
-/* facts */
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
 .fact{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
-.fact b{display:block;font-family:var(--f-display);font-size:28px;line-height:1.1;color:var(--leaf);font-variant-numeric:tabular-nums}
+.fact b{display:block;font-family:var(--f-display);font-size:26px;line-height:1.1;color:var(--leaf);font-variant-numeric:tabular-nums}
 .fact span{font-size:13.5px;color:var(--muted)}
 
-/* towers */
-.towers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.towers{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
 .tower{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0}
 .tower img{aspect-ratio:16/10;object-fit:cover;width:100%}
 .tower .b{padding:14px 16px 16px;display:grid;gap:8px}
 .tower .tag{justify-self:start}
 .tower ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
-.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap}
-.t-s1{background:var(--s1)} .t-s2{background:var(--s2)} .t-sp{background:var(--sp)} .t-all{background:var(--leaf)}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.t-s1{background:var(--s1)} .t-s2{background:var(--s2)} .t-sp{background:var(--sp)} .t-s12,.t-all{background:var(--all)}
 :root[data-theme="dark"] .tag{color:#0f1613}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag{color:#0f1613}}
 
-/* lookup */
 .tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .search{flex:1 1 260px;min-width:0;position:relative}
-.search input{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:11px 16px 11px 40px}
+.search input,.field{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:11px 16px}
+.search input{padding-left:40px}
 .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font:inherit;font-size:13.5px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:7px 12px;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--leaf);border-color:var(--leaf);color:var(--bg)}
-.count{font-size:13.5px;color:var(--muted)}
+.count-txt{font-size:13.5px;color:var(--muted)}
 .am-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .am{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:4px;min-width:0;text-align:left;font:inherit;color:inherit}
 .am .n{font-weight:600}
 .am .e{font-size:13px;color:var(--muted);font-style:italic}
 .am .m{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px;font-size:12.5px;color:var(--muted)}
-.am.has-img{cursor:zoom-in}
-.am.has-img .n::after{content:" · có ảnh";font-weight:500;font-size:12px;color:var(--lotus)}
+.am.has-img{cursor:zoom-in;padding:0;overflow:hidden}
+.am.has-img img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.am.has-img .tx{padding:10px 14px 12px;display:grid;gap:4px}
 .empty{color:var(--muted);padding:20px 0}
 
-/* gallery */
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .gal figure{margin:0;position:relative;border-radius:10px;overflow:hidden;background:var(--line);cursor:zoom-in}
 .gal img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .3s}
 .gal figure:hover img{transform:scale(1.03)}
-.gal figcaption{position:absolute;inset:auto 0 0 0;padding:22px 10px 8px;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7));display:flex;justify-content:space-between;gap:6px;align-items:end}
+.gal figcaption{position:absolute;inset:auto 0 0 0;padding:22px 10px 8px;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));display:flex;justify-content:space-between;gap:6px;align-items:end}
 .gal figcaption .tag{color:#fff!important;font-size:10.5px}
 
-/* tables */
 .tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
-table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
-th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--leaf-soft)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--leaf-soft);white-space:nowrap}
 tr:last-child td{border-bottom:0}
-td.num{text-align:right;white-space:nowrap}
+td.num{text-align:right;white-space:nowrap;font-weight:600}
+td.small{font-size:12.5px;color:var(--muted);min-width:180px}
+tr.hl td{background:var(--lotus-soft)}
 .note{font-size:13px;color:var(--muted)}
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px;min-width:0;align-content:start}
 .card ul{margin:0;padding-left:18px}
 .stack{display:flex;flex-wrap:wrap;gap:6px}
 .pill{font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--bg)}
 
-/* floors diagram */
+.finder{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:end}
+.finder label{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+.finder select,.finder input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;width:100%}
+.result{display:grid;gap:8px}
+.res{border-left:3px solid var(--lotus);padding:6px 0 6px 12px}
+.res b{font-size:18px}
+
 .floors{display:grid;gap:4px}
-.fl{display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center;font-size:13.5px}
+.fl{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:center;font-size:13.5px}
 .fl .lv{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
-.fl .bar{border-radius:6px;padding:7px 10px;background:var(--leaf-soft);color:var(--ink);min-width:0}
+.fl .bar{border-radius:6px;padding:7px 10px;background:var(--leaf-soft);min-width:0}
 .fl .bar.ph{background:var(--lotus-soft)}
 
-/* time */
 .time{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
 .time div{border-left:3px solid var(--lotus);padding-left:12px}
 .time b{font-size:24px;font-variant-numeric:tabular-nums;display:block;line-height:1.2}
 .time span{font-size:13.5px;color:var(--muted)}
 
-/* lightbox */
+.video{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:var(--r);overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;background:var(--leaf);color:var(--bg);padding:10px 16px;border-radius:999px;justify-self:start}
+
+.zalo{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:24px;align-items:center}
+@media (max-width:640px){.zalo{grid-template-columns:1fr}}
+.zalo img{border-radius:var(--r);border:1px solid var(--line);width:100%;max-width:260px}
+
 dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,96vw);width:100%}
-dialog.lb::backdrop{background:rgba(5,10,8,.88)}
-dialog.lb img{width:100%;max-height:80vh;object-fit:contain;border-radius:8px}
+dialog.lb::backdrop{background:rgba(5,10,8,.9)}
+dialog.lb img{width:100%;max-height:78vh;object-fit:contain;border-radius:8px}
 dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#fff;padding:10px 2px;font-weight:600}
 dialog.lb button{font:inherit;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer}
+dialog.lb .nav{display:flex;gap:6px}
 
 footer{padding-block:28px 40px;font-size:13px;color:var(--muted)}
 footer .in{display:grid;gap:8px}
@@ -150,23 +162,27 @@ footer .in{display:grid;gap:8px}
 <body>
 
 <header class="hero">
-  <img src="img/all-towers.webp" alt="Phối cảnh 3 tòa The Senique Hanoi nhìn từ đường lớn" fetchpriority="high">
+  <img src="img/s12-aerial.webp" alt="Phối cảnh 3 tòa The Senique Hanoi lúc hoàng hôn" fetchpriority="high">
   <div class="cap"><div class="in">
-    <div class="eyebrow">Cẩm nang cư dân · Phía Đông Hà Nội</div>
+    <div class="eyebrow">Cẩm nang cư dân · Ocean Park 1, Gia Lâm</div>
     <h1>The <em>Senique</em> Hanoi</h1>
-    <p>Mọi thông tin về dự án gom vào một chỗ để cả nhóm tra: 3 tòa có gì, tiện ích nằm ở đâu, loại căn và mặt bằng ra sao.</p>
+    <p>Mọi thông tin về dự án gom vào một chỗ để cả nhóm tra: 3 tòa có gì, tiện ích nằm ở đâu, căn của mình là loại nào, rộng bao nhiêu.</p>
+    <div class="count" aria-live="polite"><b id="cd">—</b><span>ngày tới mốc bàn giao Q2/2027</span></div>
   </div></div>
 </header>
 
 <nav class="toc" aria-label="Mục lục"><div class="in">
   <a href="#tong-quan">Tổng quan</a>
   <a href="#ba-toa">3 tòa</a>
-  <a href="#tra-cuu">Tra cứu tiện ích</a>
+  <a href="#tra-cuu">Tiện ích</a>
+  <a href="#can-ho">Loại căn</a>
+  <a href="#tra-can">Tra căn</a>
   <a href="#hinh-anh">Hình ảnh</a>
-  <a href="#can-ho">Loại căn & mặt bằng</a>
+  <a href="#clip">Clip 3D</a>
   <a href="#ban-giao">Bàn giao</a>
   <a href="#shop">Shophouse</a>
   <a href="#vi-tri">Vị trí</a>
+  <a href="#cu-dan">Nhóm cư dân</a>
 </div></nav>
 
 <main>
@@ -174,31 +190,32 @@ footer .in{display:grid;gap:8px}
   <div>
     <div class="eyebrow">Tổng quan</div>
     <h2>Sen + Unique</h2>
-    <p class="lede">Tên dự án ghép từ “Sen” và “Unique” (độc bản). Kiến trúc pha trộn Đông và Tây: vật liệu mây tre, đất nung, họa tiết quạt giấy đặt trong tổng thể hiện đại, tối giản. Đây là một trong những dự án mật độ thấp của khu vực, cộng đồng khép kín, và hiếm hoi ở khu Đông có căn 4 phòng ngủ, căn Duplex.</p>
+    <p class="lede">Tên dự án ghép từ “Sen” và “Unique”. Kiến trúc pha Đông và Tây: mây tre, đất nung, họa tiết quạt giấy đặt trong tổng thể hiện đại, tối giản. Dự án mật độ thấp, cộng đồng khép kín, có cả căn 4 phòng ngủ, Duplex và Penthouse.</p>
   </div>
   <div class="facts">
     <div class="fact"><b>3</b><span>tòa: Senique I, Senique II, Senique Premier</span></div>
-    <div class="fact"><b>100+</b><span>tiện ích nội khu toàn dự án</span></div>
-    <div class="fact"><b>700</b><span>căn hộ ở riêng tòa Premier</span></div>
-    <div class="fact"><b>Q2/2027</b><span>bàn giao Premier (dự kiến)</span></div>
+    <div class="fact"><b>2.152</b><span>căn hộ (1.452 giai đoạn 1 + 700 Premier)</span></div>
+    <div class="fact"><b>37</b><span>tầng mỗi tòa</span></div>
+    <div class="fact"><b>2,2 ha</b><span>đất (1,4 ha GĐ1 + 0,8 ha Premier)</span></div>
+    <div class="fact"><b>128</b><span>tiện ích (60 GĐ1 + 68 Premier)</span></div>
+    <div class="fact"><b>~70%</b><span>diện tích GĐ1 dành cho cảnh quan, tiện ích</span></div>
   </div>
   <div class="two">
     <div class="card">
-      <h3>Đơn vị phát triển & thiết kế</h3>
+      <h3>Chủ đầu tư và đội thiết kế</h3>
       <ul>
-        <li><b>Chủ đầu tư:</b> CapitaLand Development</li>
-        <li><b>Cảnh quan:</b> GSA Studio, kết hợp thiên nhiên với kiến trúc Đông và Tây</li>
-        <li><b>Nội thất Premier:</b> That's ITH, đơn vị từng thiết kế DEFINE và Heritage West Lake</li>
+        <li><b>CapitaLand Development</b> phối hợp cùng Nomura Real Estate Development và Mitsubishi Estate</li>
+        <li>Pháp nhân: Công ty CP Đầu tư Phát triển Kinh doanh Bình Minh</li>
+        <li>Kiến trúc: P&amp;T Group · Cảnh quan: GSA · Nội thất: 2E (giai đoạn 1), That's ITH cho Premier (đơn vị từng làm DEFINE, Heritage West Lake)</li>
       </ul>
     </div>
     <div class="card">
-      <h3>Mốc thời gian Premier</h3>
+      <h3>Mốc thời gian</h3>
       <ul>
         <li>Khởi công: Q3/2024</li>
-        <li>Bàn giao dự kiến: Q2/2027</li>
-        <li>Diện tích đất: 0,8 ha · 68 tiện ích</li>
+        <li>Bàn giao dự kiến: Q2/2027 (cả giai đoạn 1 và Premier)</li>
+        <li>Bàn giao hoàn thiện cơ bản, chi tiết ở mục <a href="#ban-giao">Bàn giao</a></li>
       </ul>
-      <p class="note">Tòa I và II chưa có mốc bàn giao trong tài liệu nhóm đang có.</p>
     </div>
   </div>
 </div></section>
@@ -207,7 +224,7 @@ footer .in{display:grid;gap:8px}
   <div>
     <div class="eyebrow">3 tòa</div>
     <h2>Mỗi tòa có gì</h2>
-    <p class="lede">Tòa I và II dùng chung khu ngoài trời Fjord với bể bơi 50m. Premier có khu Valley riêng và phần lớn tiện ích đặt trên cao.</p>
+    <p class="lede">Tòa I và II là giai đoạn 1, dùng chung khu ngoài trời Fjord có bể bơi 50m. Premier nằm riêng bên kia trường học, có khu Valley và cụm tiện ích trên cao.</p>
   </div>
   <div class="towers">
     <article class="tower">
@@ -220,11 +237,12 @@ footer .in{display:grid;gap:8px}
           <li>Gym, yoga, xông ướt và xông khô</li>
           <li>Vườn thiền Chân Mây, Trạm Đọc, co-working SkyLab</li>
           <li>Tầng 37: Chốn Bình Yên, Vườn Cờ Vua, Bonding Terrace</li>
+          <li>11 shop khối đế, 66–200 m²</li>
         </ul>
       </div>
     </article>
     <article class="tower">
-      <img src="img/s2-game.webp" alt="Phòng game tòa The Senique II" loading="lazy">
+      <img src="img/s2-lobby.webp" alt="Sảnh lễ tân tòa The Senique II" loading="lazy">
       <div class="b">
         <span class="tag t-s2">Senique II · U37A</span>
         <h3>Sôi động, nhiều chỗ chơi và tiệc</h3>
@@ -233,6 +251,7 @@ footer .in{display:grid;gap:8px}
           <li>Phòng tiệc Terra Cotta, Bamboo Party House</li>
           <li>Thư viện cộng đồng, co-working, phòng họp</li>
           <li>Sân chơi trẻ em Chân Mây, Xứ sở Mây Trắng</li>
+          <li>6 shop khối đế, 121–150 m²</li>
         </ul>
       </div>
     </article>
@@ -240,12 +259,13 @@ footer .in{display:grid;gap:8px}
       <img src="img/sp-aerial.webp" alt="Phối cảnh tòa The Senique Premier" loading="lazy">
       <div class="b">
         <span class="tag t-sp">Senique Premier</span>
-        <h3>Tòa cao cấp nhất, tiện ích trên cao</h3>
+        <h3>Tòa cao cấp nhất, 0,8 ha riêng</h3>
         <ul>
-          <li>700 căn, 68 tiện ích, có Duplex và Penthouse</li>
-          <li>Bể bơi nước nóng và gym Zenith trên cao</li>
-          <li>Bar Lá Sen, Wine & Dine Club, bếp tiệc Claystone</li>
+          <li>700 căn, 68 tiện ích, có Penthouse tầng 36–37</li>
+          <li>Bể bơi Resort Valley, bể nước nóng và gym Zenith trên cao</li>
+          <li>Bar Lá Sen, Wine &amp; Dine Club, bếp tiệc Claystone, karaoke</li>
           <li>Kính sàn-trần phòng ngủ chính, lan can kính</li>
+          <li>7 shop khối đế, 91–201 m²</li>
         </ul>
       </div>
     </article>
@@ -254,9 +274,9 @@ footer .in{display:grid;gap:8px}
 
 <section class="blk" id="tra-cuu"><div class="in">
   <div>
-    <div class="eyebrow">Tra cứu</div>
+    <div class="eyebrow">Tra cứu tiện ích</div>
     <h2>Tiện ích nào, ở tòa nào?</h2>
-    <p class="lede">Gõ tên tiện ích bằng tiếng Việt hoặc tiếng Anh (gym, bơi, golf, BBQ, trẻ em…) hoặc lọc theo tòa. Mục có ảnh thì bấm vào để xem.</p>
+    <p class="lede">Gõ tên tiện ích bằng tiếng Việt hoặc tiếng Anh (gym, bơi, golf, BBQ, trẻ em…) hoặc lọc theo tòa. Mục có ảnh thì bấm để xem lớn.</p>
   </div>
   <div class="tools">
     <label class="search">
@@ -266,101 +286,103 @@ footer .in{display:grid;gap:8px}
     <div class="chips" id="f-tower" role="group" aria-label="Lọc theo tòa"></div>
   </div>
   <div class="chips" id="f-kind" role="group" aria-label="Lọc theo nhóm"></div>
-  <div class="count" id="am-count" aria-live="polite"></div>
+  <div class="count-txt" id="am-count" aria-live="polite"></div>
   <div class="am-grid" id="am-list"></div>
+</div></section>
+
+<section class="blk" id="can-ho"><div class="in">
+  <div>
+    <div class="eyebrow">Loại căn</div>
+    <h2>Các loại căn hộ</h2>
+    <p class="lede">Ba tòa dùng chung bộ mã căn 1–4 phòng ngủ và Duplex. Riêng Premier có thêm Penthouse ở tầng 36–37. Căn 3PN lớn nhất dự án là C5.01 ở tầng 36, thông thủy 107,5 m².</p>
+  </div>
+  <div class="chips" id="f-br" role="group" aria-label="Lọc theo số phòng ngủ"></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Loại</th><th>Mã</th><th class="num">Thông thủy</th><th class="num">Tim tường</th><th>Tầng</th><th>Căn số · Senique I</th><th>Căn số · Senique II</th></tr></thead>
+      <tbody id="types"></tbody>
+    </table>
+  </div>
+  <p class="note">Mã có thêm chữ M (ví dụ B2.02M) là mặt bằng đối xứng, diện tích như căn gốc. Với Duplex và Penthouse, diện tích ghi theo tầng dưới + tầng trên. Nguồn: brochure Senique I-II và slide Senique Premier.</p>
+
+  <div class="two">
+    <div class="card">
+      <h3><span class="tag t-s1">Senique I</span> <span class="tag t-s2">Senique II</span> Nhóm tầng</h3>
+      <div class="floors">
+        <div class="fl"><span class="lv">2–19</span><span class="bar">1PN · 2PN · 3PN · tầng dưới Duplex (tầng chẵn)</span></div>
+        <div class="fl"><span class="lv">20</span><span class="bar">Tầng tiện ích, có căn kèm sân vườn và khu lánh nạn</span></div>
+        <div class="fl"><span class="lv">21–23</span><span class="bar">2PN · 3PN · Duplex</span></div>
+        <div class="fl"><span class="lv">24–35</span><span class="bar">2PN · 3PN · Duplex, chia tầng chẵn và lẻ</span></div>
+        <div class="fl"><span class="lv">36</span><span class="bar ph">3PN lớn C4.01, C5.01 · Duplex DUP3.01</span></div>
+        <div class="fl"><span class="lv">37</span><span class="bar ph">4PN D1.01–D1.03 · tiện ích tầng thượng</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="tag t-sp">Senique Premier</span> Mặt bằng tầng điển hình (2–18 chẵn)</h3>
+      <div class="tw" style="border:0">
+        <table>
+          <tbody id="sp-floor"></tbody>
+        </table>
+      </div>
+      <p class="note">Tầng 36: căn 13, 14 là Penthouse PH1 (tầng dưới). Tầng 37: căn 01 PH2.01, căn 02 PH2.02.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="blk" id="tra-can"><div class="in">
+  <div>
+    <div class="eyebrow">Tra căn</div>
+    <h2>Căn của tôi là loại nào?</h2>
+    <p class="lede">Chọn tòa, nhập tầng và số căn (ví dụ tầng 36, căn 13). Áp dụng cho Senique I và II theo bảng trong brochure.</p>
+  </div>
+  <div class="card">
+    <div class="finder">
+      <label for="f-t">Tòa
+        <select id="f-t"><option value="s1">Senique I</option><option value="s2">Senique II</option></select>
+      </label>
+      <label for="f-f">Tầng<input id="f-f" type="number" inputmode="numeric" min="2" max="37" value="36"></label>
+      <label for="f-u">Số căn<input id="f-u" type="number" inputmode="numeric" min="1" max="24" value="13"></label>
+    </div>
+    <div class="result" id="f-res" aria-live="polite"></div>
+  </div>
 </div></section>
 
 <section class="blk" id="hinh-anh"><div class="in">
   <div>
     <div class="eyebrow">Hình ảnh</div>
-    <h2>Phối cảnh tiện ích</h2>
-    <p class="lede">Ảnh 3D minh họa của chủ đầu tư. Bấm vào ảnh để xem lớn.</p>
+    <h2>Phối cảnh dự án</h2>
+    <p class="lede">Toàn bộ ảnh 3D trong thư mục dự án. Bấm vào ảnh để xem lớn, dùng phím mũi tên để chuyển ảnh.</p>
   </div>
-  <div class="chips" id="g-tower" role="group" aria-label="Lọc ảnh theo tòa"></div>
+  <div class="chips" id="g-tower" role="group" aria-label="Lọc ảnh"></div>
   <div class="gal" id="gal"></div>
 </div></section>
 
-<section class="blk" id="can-ho"><div class="in">
+<section class="blk" id="clip"><div class="in">
   <div>
-    <div class="eyebrow">Loại căn & mặt bằng</div>
-    <h2>Các loại căn hộ</h2>
-    <p class="lede">Dự án có đủ 1, 2, 3, 4 phòng ngủ, Duplex, căn sân vườn (Garden) và Penthouse. Căn 2 phòng ngủ từ 80 m² có phòng tắm thiết kế an toàn cho người già và trẻ nhỏ, hợp gia đình nhiều thế hệ.</p>
+    <div class="eyebrow">Clip 3D</div>
+    <h2>Clip mô phỏng dự án</h2>
   </div>
-
-  <div class="two">
-    <div class="card">
-      <h3><span class="tag t-s1">Senique I</span> <span class="tag t-s2">Senique II</span></h3>
-      <p>Mặt bằng tầng điển hình chia theo nhóm tầng:</p>
-      <div class="floors">
-        <div class="fl"><span class="lv">2–18 chẵn</span><span class="bar">1PN · 2PN · 3PN · Duplex</span></div>
-        <div class="fl"><span class="lv">3–19 lẻ</span><span class="bar">1PN · 2PN · 3PN · Duplex</span></div>
-        <div class="fl"><span class="lv">Tầng 20</span><span class="bar">Tầng tiện ích, kèm căn Garden</span></div>
-        <div class="fl"><span class="lv">21–23</span><span class="bar">2PN · 3PN · Duplex</span></div>
-        <div class="fl"><span class="lv">24–35</span><span class="bar">2PN · 3PN · Duplex, chia chẵn và lẻ</span></div>
-        <div class="fl"><span class="lv">Tầng trên cùng</span><span class="bar ph">Garden · Duplex</span></div>
-      </div>
-      <p class="note">Diện tích từng căn nằm trên ảnh mặt bằng trong brochure, chưa trích được thành chữ. Xem file “Sen1-2.pdf” trong thư mục Drive của nhóm.</p>
-    </div>
-    <div class="card">
-      <h3><span class="tag t-sp">Senique Premier</span></h3>
-      <p>Khoảng 22–23 căn mỗi tầng:</p>
-      <div class="floors">
-        <div class="fl"><span class="lv">2–20</span><span class="bar">1PN · 2PN · 3PN · Duplex</span></div>
-        <div class="fl"><span class="lv">Tầng 21</span><span class="bar">2PN · 3PN · Duplex</span></div>
-        <div class="fl"><span class="lv">22–35</span><span class="bar">2PN · 3PN · Duplex</span></div>
-        <div class="fl"><span class="lv">Tầng 36</span><span class="bar ph">2PN · 3PN · Duplex · Penthouse 4PN</span></div>
-        <div class="fl"><span class="lv">Tầng 37</span><span class="bar ph">Tầng trên của Penthouse và Duplex</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <h3 style="margin-bottom:10px">Diện tích căn Premier (tham khảo)</h3>
-    <div class="tw">
-      <table>
-        <thead><tr><th>Loại căn</th><th>Mã</th><th class="num">Thông thủy</th><th class="num">Tim tường</th></tr></thead>
-        <tbody>
-          <tr><td>1PN</td><td>1BR/A1.01</td><td class="num">~42,0 m²</td><td class="num">~46,2 m²</td></tr>
-          <tr><td>2PN nhỏ</td><td>2BR/B2.01 – B2.02</td><td class="num">~53,5–54,4 m²</td><td class="num">~58,5 m²</td></tr>
-          <tr><td>2PN vừa</td><td>2BR/B1.01</td><td class="num">~64,3 m²</td><td class="num">~70,0 m²</td></tr>
-          <tr><td>3PN nhỏ</td><td>3BR/C1.01 – C2.02</td><td class="num">~83,2–85,9 m²</td><td class="num">~90,3–93,1 m²</td></tr>
-          <tr><td>3PN vừa</td><td>3BR/C3.02</td><td class="num">~96,8 m²</td><td class="num">~104,9 m²</td></tr>
-          <tr><td>3PN lớn</td><td>3BR/C3.01</td><td class="num">~101,5 m²</td><td class="num">~109,9 m²</td></tr>
-          <tr><td>Duplex nhỏ</td><td>DUP1.02</td><td class="num">~63,3 + 54,2 m²</td><td class="num">~70,2 + 60,0 m²</td></tr>
-          <tr><td>Duplex vừa</td><td>DUP1.01 / 2.01</td><td class="num">~73,4–81,5 + 60,4 m²</td><td class="num">~80,9–89,0 + 66,7 m²</td></tr>
-          <tr><td>Penthouse 4PN</td><td>4BR/PH1</td><td class="num">~201,2 + 144,5 m²</td><td class="num">~223,0 + 156,3 m²</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note" style="margin-top:8px">Duplex và Penthouse ghi diện tích tầng dưới + tầng trên. Số đọc từ ảnh mặt bằng trong slide 10/2024, ảnh mờ nên có thể lệch. Căn cứ chính xác là hợp đồng mua bán.</p>
-  </div>
-
-  <div class="card">
-    <h3>Lưu ý chung trên mặt bằng</h3>
-    <ul class="note" style="font-size:14px">
-      <li>Cửa tiền sảnh căn hộ không nằm trong danh mục bàn giao, chủ nhà tự lắp theo thiết kế và hướng dẫn của CĐT hoặc BQL.</li>
-      <li>Tấm trang trí mặt đứng bố trí tùy căn, CĐT có thể điều chỉnh vị trí.</li>
-      <li>Diện tích là ước tính, chốt theo đo đạc chính thức.</li>
-    </ul>
-  </div>
+  <div class="video"><iframe src="https://drive.google.com/file/d/1oGU-pKLpaxBI79Nvh85HhK5mOwWeVHxn/preview" title="Clip mô phỏng The Senique Hanoi" allow="autoplay; fullscreen" loading="lazy" allowfullscreen></iframe></div>
+  <a class="btn" href="https://drive.google.com/file/d/1oGU-pKLpaxBI79Nvh85HhK5mOwWeVHxn/view" target="_blank" rel="noopener">Mở clip trên Google Drive</a>
 </div></section>
 
 <section class="blk" id="ban-giao"><div class="in">
   <div>
     <div class="eyebrow">Bàn giao</div>
     <h2>Tiêu chuẩn bàn giao hoàn thiện (dự kiến)</h2>
+    <p class="lede">Áp dụng cho căn 1PN, 2PN, 3PN, 4PN. Cửa tiền sảnh không nằm trong danh mục bàn giao, chủ nhà tự lắp theo thiết kế và hướng dẫn của chủ đầu tư hoặc ban quản lý.</p>
   </div>
   <div class="tw">
     <table>
-      <thead><tr><th>Hạng mục</th><th>Senique I & II</th><th>Senique Premier</th></tr></thead>
+      <thead><tr><th>Hạng mục</th><th>Senique I &amp; II</th><th>Senique Premier</th></tr></thead>
       <tbody>
         <tr><td>Cửa</td><td colspan="2">Cửa chính gỗ công nghiệp chống cháy phủ laminate; cửa phòng phủ melamine</td></tr>
         <tr><td>Khóa</td><td colspan="2">Khóa thông minh Igloohome hoặc tương đương</td></tr>
         <tr><td>Liên lạc</td><td colspan="2">Chuông hình gọi sảnh Fermax, Panasonic hoặc tương đương</td></tr>
         <tr><td>Sàn</td><td colspan="2">Phòng khách, ăn, ngủ: sàn gỗ công nghiệp. Khu khác: sàn gạch</td></tr>
         <tr><td>Tường</td><td colspan="2">Bả và sơn hoàn thiện</td></tr>
-        <tr><td>Cửa sổ</td><td>Cửa kính khung nhôm</td><td>Kính sàn-trần cho phòng ngủ chính</td></tr>
-        <tr><td>Lan can</td><td>Lan can thép</td><td>Lan can kính</td></tr>
+        <tr class="hl"><td>Cửa sổ</td><td>Cửa kính khung nhôm</td><td>Kính sàn-trần cho phòng ngủ chính</td></tr>
+        <tr class="hl"><td>Lan can</td><td>Lan can thép</td><td>Lan can kính</td></tr>
         <tr><td>Tủ</td><td colspan="2">Tủ quần áo, tủ bếp, tủ lavabo chống nước, phủ melamine</td></tr>
         <tr><td>Thiết bị bếp</td><td colspan="2">Bếp, hút mùi, vòi, chậu rửa Teka hoặc tương đương</td></tr>
         <tr><td>Thiết bị vệ sinh</td><td colspan="2">Hansgrohe, Axent, Hessen hoặc tương đương; có bình nóng lạnh</td></tr>
@@ -375,31 +397,31 @@ footer .in{display:grid;gap:8px}
   <div>
     <div class="eyebrow">Shophouse</div>
     <h2>Shop thương mại dịch vụ khối đế</h2>
-    <p class="lede">Các shop thương mại dịch vụ nằm ở khối đế các tòa, có hai dòng sản phẩm là Senique Shop và Lumi Shop. Số lượng có hạn, chủ yếu cho kinh doanh hoặc cho thuê lại.</p>
+    <p class="lede">24 shop nằm ở khối đế 3 tòa, mặt tiền đón luồng giao thông ra vào dự án. Khách sẵn có khoảng 10.000 cư dân.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Tòa</th><th class="num">Số shop</th><th class="num">Diện tích sử dụng</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag t-s1">Senique I</span></td><td class="num">11</td><td class="num">66–200 m²</td></tr>
+        <tr><td><span class="tag t-s2">Senique II</span></td><td class="num">6</td><td class="num">121–150 m²</td></tr>
+        <tr><td><span class="tag t-sp">Senique Premier</span></td><td class="num">7</td><td class="num">91–201 m²</td></tr>
+        <tr><td><b>Tổng</b></td><td class="num">24</td><td class="num">66–201 m²</td></tr>
+      </tbody>
+    </table>
   </div>
   <div class="two">
     <div class="card">
-      <h3>Điểm mạnh chủ đầu tư nêu</h3>
+      <h3>Điểm chủ đầu tư nêu</h3>
       <ul>
-        <li>Mặt bằng đón đầu luồng giao thông ra vào dự án</li>
-        <li>Nhiều mức diện tích, hợp nhiều ngành hàng</li>
-        <li>Khách sẵn có: cư dân của cả 3 tòa</li>
-        <li>CapitaLand có kinh nghiệm vận hành bán lẻ: ION Orchard, Clarke Quay (Singapore)</li>
+        <li>Nhiều mức diện tích, hợp nhiều ngành hàng; thương hiệu mục tiêu ví dụ như Starbucks</li>
+        <li>CapitaLand có kinh nghiệm vận hành bán lẻ: ION Orchard, Clarke Quay, Raffles City</li>
+        <li>Khởi công Q3/2024, bàn giao Q2/2027 cùng phần căn hộ</li>
       </ul>
     </div>
     <div class="card">
-      <h3>Ngành hàng nhắm tới</h3>
-      <p>Slide nêu “đa dạng diện tích phù hợp với nhiều ngành hàng” và lấy ví dụ thương hiệu mục tiêu như Starbucks.</p>
-      <p class="note">Theo chính slide, tên thương hiệu chỉ để tham khảo cho khách tiềm năng, chưa phải khách thuê đã ký.</p>
-    </div>
-    <div class="card">
-      <h3>Tài liệu gốc</h3>
-      <ul>
-        <li>Mặt bằng shop đế thông thường và mặt bằng shop vị trí đẹp</li>
-        <li>Tiến độ xây dựng tháng 05/2025</li>
-        <li>Bản đồ vị trí và tổng mặt bằng</li>
-      </ul>
-      <p class="note">Nằm trong file “Shop Senique & Lumi _Release.pdf” (slide 05/2025) ở thư mục Drive của nhóm. Diện tích và vị trí từng shop nằm trên ảnh nên chưa trích ra được.</p>
+      <h3>Ảnh phối cảnh khối đế</h3>
+      <div class="gal" id="gal-shop" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))"></div>
     </div>
   </div>
 </div></section>
@@ -407,7 +429,8 @@ footer .in{display:grid;gap:8px}
 <section class="blk" id="vi-tri"><div class="in">
   <div>
     <div class="eyebrow">Vị trí</div>
-    <h2>Đi lại từ dự án</h2>
+    <h2>Trong lòng Ocean Park 1</h2>
+    <p class="lede">Dự án nằm giữa đường Biển Hồ 6, Biển Hồ 10 và Đại lộ Tây Dương. Giai đoạn 1 và Premier cách nhau một khu đất trường học; cạnh Premier là khu thương mại.</p>
   </div>
   <div class="time">
     <div><b>2 phút</b><span>Vincom Mega Mall</span></div>
@@ -418,41 +441,71 @@ footer .in{display:grid;gap:8px}
   <div class="two">
     <div class="card"><h3>Mua sắm</h3><div class="stack"><span class="pill">AEON Mall Long Biên</span><span class="pill">TASCO Mall</span><span class="pill">Vincom Mega Mall</span></div></div>
     <div class="card"><h3>Y tế</h3><div class="stack"><span class="pill">Vinmec</span><span class="pill">BV Đa khoa Gia Lâm</span><span class="pill">BV Đa khoa Đức Giang</span></div></div>
-    <div class="card"><h3>Giáo dục</h3><div class="stack"><span class="pill">Vinschool</span><span class="pill">VinUniversity</span><span class="pill">ĐH Anh Quốc Việt Nam (BUV)</span><span class="pill">Brighton College</span></div></div>
-    <div class="card"><h3>Vui chơi</h3><div class="stack"><span class="pill">VinWonders Wave Park</span><span class="pill">Grand World</span><span class="pill">K-Town</span><span class="pill">The Venice</span><span class="pill">Paradise Bay</span><span class="pill">Marina Square</span></div></div>
+    <div class="card"><h3>Giáo dục</h3><div class="stack"><span class="pill">Vinschool</span><span class="pill">VinUniversity</span><span class="pill">ĐH Anh Quốc Việt Nam (BUV)</span><span class="pill">Brighton College</span><span class="pill">ĐH Nông nghiệp</span></div></div>
+    <div class="card"><h3>Vui chơi</h3><div class="stack"><span class="pill">VinWonders Wave Park</span><span class="pill">Grand World</span><span class="pill">K-Town</span><span class="pill">The Venice</span><span class="pill">Paradise Bay</span><span class="pill">Marina Square</span><span class="pill">Làng gốm Bát Tràng</span></div></div>
+  </div>
+</div></section>
+
+<section class="blk" id="cu-dan"><div class="in">
+  <div class="zalo">
+    <img src="img/zalo-qr.jpg" alt="Mã QR tham gia nhóm Zalo cư dân Senique OCP1" loading="lazy">
+    <div style="display:grid;gap:12px">
+      <div class="eyebrow">Nhóm cư dân</div>
+      <h2>Nhóm cư dân Senique OCP1</h2>
+      <p class="lede">Quét mã bằng Zalo để vào nhóm. Nhóm dành cho chủ nhà: không sale, không mua bán. Có gì cần bổ sung vào cẩm nang này, nhắn trong nhóm nhé.</p>
+    </div>
   </div>
 </div></section>
 </main>
 
 <footer><div class="in">
-  <p><b>Trang do nhóm chủ nhà tự tổng hợp</b> từ brochure Senique I-II, slide Senique Premier (10/2024), slide shop TMDV (05/2025) và ảnh phối cảnh của chủ đầu tư.</p>
-  <p>Đây không phải trang chính thức của CapitaLand Development. Hình ảnh mang tính minh họa; thông tin có thể đã thay đổi theo phê duyệt của cơ quan có thẩm quyền.</p>
+  <p><b>Trang do nhóm cư dân tự tổng hợp</b> từ brochure Senique I-II, slide Senique Premier (10/2024), slide training (10/2024), slide shop TMDV (05/2025) và ảnh phối cảnh của chủ đầu tư.</p>
+  <p>Đây không phải trang chính thức của CapitaLand Development. Hình ảnh mang tính minh họa; thông tin có thể thay đổi theo phê duyệt của cơ quan có thẩm quyền.</p>
 </div></footer>
 
 <dialog class="lb" id="lb" aria-label="Xem ảnh">
-  <div class="bar"><span id="lb-cap"></span><button type="button" id="lb-x">Đóng</button></div>
+  <div class="bar"><span id="lb-cap"></span><span class="nav"><button type="button" id="lb-p" aria-label="Ảnh trước">‹</button><button type="button" id="lb-n" aria-label="Ảnh sau">›</button><button type="button" id="lb-x">Đóng</button></span></div>
   <img id="lb-img" alt="">
 </dialog>
 
 <script>
 (function(){
-  const T = { s1:"Senique I", s2:"Senique II", s12:"Senique I & II", sp:"Premier" };
-  const TC = { s1:"t-s1", s2:"t-s2", s12:"t-all", sp:"t-sp" };
-  const K = { out:"Ngoài trời", water:"Bể bơi & nước", sport:"Thể thao & sức khỏe", kids:"Trẻ em", work:"Làm việc & đọc", social:"Tiệc & giải trí", relax:"Thư giãn & vườn", service:"Sảnh & dịch vụ" };
+  const $ = s => document.querySelector(s);
+  const T = { s1:"Senique I", s2:"Senique II", s12:"Senique I & II", sp:"Premier", all:"Toàn dự án", shop:"Shophouse" };
+  const TC = { s1:"t-s1", s2:"t-s2", s12:"t-s12", sp:"t-sp", all:"t-all", shop:"t-all" };
+  const tag = t => { const s = document.createElement("span"); s.className = "tag " + TC[t]; s.textContent = T[t]; return s; };
 
-  // [tên VN, tên EN, tòa, nhóm, ảnh?]
+  /* countdown */
+  const days = Math.ceil((new Date(2027, 5, 30) - new Date()) / 864e5);
+  $("#cd").textContent = days > 0 ? days.toLocaleString("vi-VN") : "Đã tới";
+
+  /* ---------- images ---------- */
+  const IMG = [
+    ["all-towers","Toàn cảnh 3 tòa","all"],["s12-aerial","Phối cảnh 3 tòa lúc hoàng hôn","all"],["sp-aerial-2","Premier và giai đoạn 1 nhìn từ trên cao","all"],["sp-aerial-3","Premier và giai đoạn 1, hướng đại lộ","all"],
+    ["s12-entrance","Cổng chào tòa I & II","s12"],["s12-overview","Toàn cảnh khu Fjord","s12"],["s12-pool","Bể bơi Fjord 50m","s12"],["s12-splash","Bể bơi cầu trượt trẻ em","s12"],["s12-cabana","Chòi nghỉ bên bể bơi","s12"],["s12-playground","Sân chơi Bầu Trời","s12"],
+    ["s12-sky-1","Vườn trên cao, góc lounge","s12"],["s12-sky-2","Vườn trên cao lúc hoàng hôn","s12"],["s12-sky-3","Không gian chung trên cao, bàn bóng bàn","s12"],["s12-sky-4","Sân thượng thư giãn","s12"],["s12-sky-yoga","Góc yoga trên cao","s12"],["s12-sky-kids","Góc chơi trẻ em trên cao","s12"],["s12-sky-kids-2","Bãi cỏ trẻ em trên cao","s12"],
+    ["s1-lobby","Đại sảnh tòa I","s1"],["s1-lift-lobby-l1","Sảnh thang máy tầng 1, tòa I","s1"],["s1-lift-lobby","Sảnh thang máy tầng điển hình, tòa I","s1"],["s1-lounge","Sảnh cư dân tòa I","s1"],["s1-library","Thư viện tòa I","s1"],["s1-gym","Phòng gym tòa I","s1"],
+    ["s2-lobby","Đại sảnh tòa II","s2"],["s2-lift-lobby","Sảnh thang máy tòa II","s2"],["s2-lounge","Sảnh cư dân tòa II","s2"],["s2-coworking","Co-working tòa II","s2"],["s2-meeting","Phòng họp tòa II","s2"],["s2-livestream","Studio livestream","s2"],["s2-golf","Phòng Golf 3D tòa II","s2"],["s2-game","Khu Chơi & Kết Nối","s2"],["s2-game-2","Phòng game, bi-a","s2"],["s2-multimedia","Phòng chiếu phim","s2"],["s2-party","Phòng tiệc Terra Cotta","s2"],["s2-party-2","Phòng tiệc, phương án 2","s2"],["s2-party-room","Phòng tiệc có quầy bếp","s2"],["s2-kids-room","Xứ sở Mây Trắng","s2"],
+    ["sp-aerial","Tòa Premier","sp"],["sp-crown","Đỉnh tòa Premier","sp"],["sp-dropoff-aerial","Cổng chào Premier","sp"],["sp-dropoff","Sảnh đón trả Premier","sp"],["sp-valley-pool","Bể bơi Resort Valley","sp"],["sp-valley-pool-2","Bể bơi Valley nhìn về tòa","sp"],["sp-hilltop","Chòi thư thái Hilltop","sp"],["sp-fountain-garden","Vườn đài phun và võng","sp"],["sp-water-garden","Vườn tường nước","sp"],
+    ["sp-lounge","Sảnh cư dân Premier","sp"],["sp-lift-lobby","Sảnh thang máy Premier","sp"],["sp-sky-lounge","Bar Lá Sen & Wine and Dine","sp"],["sp-party","Sảnh tiệc Cascade","sp"],["sp-gourmet","Bếp tiệc Claystone","sp"],["sp-gourmet-2","Bếp tiệc Claystone, góc 2","sp"],["sp-karaoke","Phòng karaoke","sp"],["sp-coworking","Co-working Calligraphy","sp"],["sp-coworking-2","Co-working Calligraphy, góc 2","sp"],["sp-golf","Phòng Golf 3D Premier","sp"],["sp-gym","Gym trên cao Zenith","sp"],["sp-sky-pool","Bể bơi nước nóng trên cao","sp"],["sp-kids-pool","Bể nước trẻ em trên cao","sp"],["sp-kids-club","Vương quốc Hồ Sen","sp"],
+    ["s12-shop-facade","Dãy shop khối đế tòa I & II","shop"],["s12-shop-street","Shop mặt đường tòa I & II","shop"],["sp-shop-street","Shop mặt đường Premier","shop"],["sp-shop-plaza","Quảng trường shop Premier","shop"],["sp-plaza","Khán đài và café khối đế Premier","shop"]
+  ];
+  const IMGMAP = Object.fromEntries(IMG.map(([k,c,t]) => [k,{c,t}]));
+  const src = k => "img/" + k + (k === "s2-game-2" ? ".jpg" : ".webp");
+
+  /* ---------- amenities ---------- */
+  const K = { out:"Ngoài trời", water:"Bể bơi & nước", sport:"Thể thao & sức khỏe", kids:"Trẻ em", work:"Làm việc & đọc", social:"Tiệc & giải trí", relax:"Thư giãn & vườn", service:"Sảnh & dịch vụ" };
   const AM = [
-    // Fjord zone - ngoài trời tòa I & II
-    ["Cổng chào tòa I & II","Grand Entrance","s12","service"],
+    ["Cổng chào tòa I & II","Grand Entrance","s12","service","s12-entrance"],
     ["Sảnh đón trả tòa I & II","Drop-off","s12","service"],
     ["Đường dạo bộ xanh","Green Promenade","s12","out"],
     ["Bể bơi Fjord 50m","Fjord 50m Lap Pool","s12","water","s12-pool"],
     ["Ghế tắm nắng Bồng Bềnh","Floating Sunloungers","s12","water"],
-    ["Chòi nghỉ Thư Thái","Restful Cabanas","s12","relax"],
-    ["Lounge An Yên (sunken lounge)","Tranquil Sunken Lounge","s12","relax"],
+    ["Chòi nghỉ Thư Thái","Restful Cabanas","s12","relax","s12-cabana"],
+    ["Lounge An Yên","Tranquil Sunken Lounge","s12","relax"],
     ["Sân tắm nắng Fjord","Fjord Sunbath Deck","s12","water"],
     ["Bể sục Jacuzzi","Jacuzzi Corner","s12","water"],
-    ["Bể bơi cầu trượt nước trẻ em","Kiddie Splash Pool","s12","kids","s12-overview"],
+    ["Bể bơi cầu trượt trẻ em","Kiddie Splash Pool","s12","kids","s12-splash"],
     ["Chòi Bóng Mát","Under-the-tree Pavilion","s12","relax"],
     ["Góc trông nom cho phụ huynh","Parent's Observation Deck","s12","kids"],
     ["Vườn BBQ","BBQ Garden","s12","social"],
@@ -465,29 +518,26 @@ footer .in{display:grid;gap:8px}
     ["Sân tập gym ngoài trời","Outdoor Fitness","s12","sport"],
     ["Vườn Hương","Scent Garden","s12","relax"],
     ["Đường dạo Thiên Nhiên","Nature Wandering","s12","out"],
-    ["Khu phố thương mại Fjord","Fjord Commercial Street","s12","service"],
+    ["Khu phố thương mại Fjord","Fjord Commercial Street","s12","service","s12-shop-street"],
     ["Trạm sạc xe điện","EV Charging Station","s12","service"],
     ["Quảng trường & ghế nghỉ Fjord","Fjord Plaza & Seating","s12","out"],
-    // Senique I trong nhà
     ["Đại sảnh và lễ tân tòa I","Grand Lobby","s1","service","s1-lobby"],
-    ["Sảnh thang máy tòa I","Lift Lobby","s1","service","s1-lift-lobby"],
     ["Phòng xông ướt & xông khô","Steam & Sauna Room","s1","sport"],
     ["Khu trò chơi dân gian","Folk Playzone","s1","kids"],
     ["Góc vui chơi Gia Đình","Family Game Nest","s1","kids"],
     ["Phòng thư tín, phòng bưu kiện","Mail & Parcel Room","s1","service"],
     ["Góc làm việc SkyLab","SkyLab Co-working","s1","work"],
-    ["Sảnh cư dân tòa I","Resident Lounge","s1","relax"],
+    ["Sảnh cư dân tòa I","Resident Lounge","s1","relax","s1-lounge"],
     ["Vườn Thiền Chân Mây","Cloud Meditation Haven","s1","relax"],
-    ["Trạm Đọc / Thư viện","Reading Nook","s1","work","s1-library"],
+    ["Trạm Đọc","Reading Nook","s1","work","s1-library"],
     ["Góc Cộng Đồng","Community Club","s1","social"],
-    ["Phòng tập Gym","Gym Arena","s1","sport"],
+    ["Phòng tập Gym","Gym Arena","s1","sport","s1-gym"],
     ["Phòng tập Yoga","Yoga Studio","s1","sport"],
     ["Chốn Bình Yên (tầng 37)","Serenity Hideaway","s1","relax"],
     ["Vườn Cờ Vua (tầng 37)","Chess Pocket Garden","s1","relax"],
     ["Không gian Kết Nối (tầng 37)","Bonding Terrace","s1","social"],
-    // Senique II trong nhà
-    ["Đại sảnh và lễ tân tòa II","Grand Lobby","s2","service"],
-    ["Phòng họp","Meeting Room","s2","work"],
+    ["Đại sảnh và lễ tân tòa II","Grand Lobby","s2","service","s2-lobby"],
+    ["Phòng họp","Meeting Room","s2","work","s2-meeting"],
     ["Sân chơi trẻ em Chân Mây","Kid's Sky Playground","s2","kids"],
     ["Vườn Yoga","Yoga Haven","s2","sport"],
     ["Góc đọc sách ngoài trời","Open-air Reading Corner","s2","work"],
@@ -498,27 +548,27 @@ footer .in{display:grid;gap:8px}
     ["Phòng tiệc Terra Cotta","Terra Cotta Party Lounge","s2","social","s2-party"],
     ["Phòng tiệc Bamboo","Bamboo Party House","s2","social"],
     ["Vườn Địa Đàng","Sanctuary Eden","s2","relax"],
-    ["Góc chơi board game tầng thượng","Rooftop Boardgame Zone","s2","social"],
+    ["Góc board game tầng thượng","Rooftop Boardgame Zone","s2","social"],
     ["Vườn Thưởng Thức","Sipping Garden","s2","relax"],
-    ["Sảnh cư dân tòa II","Resident Lounge","s2","relax"],
+    ["Sảnh cư dân tòa II","Resident Lounge","s2","relax","s2-lounge"],
     ["Phòng Livestream","Livestream Studio","s2","work","s2-livestream"],
-    ["Khu Chơi & Kết Nối (phòng game)","Play & Connect Arena","s2","social","s2-game"],
+    ["Khu Chơi & Kết Nối","Play & Connect Arena","s2","social","s2-game"],
     ["Phòng chiếu phim đa năng","Multimedia Room","s2","social","s2-multimedia"],
     ["Phòng Golf 3D","3D Golf Simulator","s2","sport","s2-golf"],
     ["Xứ sở Mây Trắng","Cloud Kids Playzone","s2","kids","s2-kids-room"],
     ["Phòng thư tín, phòng bưu kiện","Mail & Parcel Room","s2","service"],
-    // Premier
-    ["Cổng chào The Senique Premier","Grand Entrance","sp","service"],
-    ["Sảnh đón trả Premier","Drop-off","sp","service"],
-    ["Bể bơi Resort Valley","Valley Resort Pool","sp","water"],
+    ["Cổng chào Premier","Grand Entrance","sp","service","sp-dropoff-aerial"],
+    ["Sảnh đón trả Premier","Drop-off","sp","service","sp-dropoff"],
+    ["Bể bơi Resort Valley","Valley Resort Pool","sp","water","sp-valley-pool"],
     ["Sân chơi nước trẻ em","Bubble Kids Water Playground","sp","kids"],
-    ["Chòi thư thái Hilltop","Hilltop Pavilion","sp","relax"],
+    ["Chòi thư thái Hilltop","Hilltop Pavilion","sp","relax","sp-hilltop"],
     ["Vườn BBQ Grill & Chill","Grill & Chill Garden","sp","social"],
     ["Vườn trà An Nhiên","Sereni-tea Garden","sp","relax"],
     ["Sảnh tòa Premier","Premier Tower Lobby","sp","service"],
-    ["Sảnh cư dân Premier","Resident Lounge","sp","relax"],
+    ["Sảnh cư dân Premier","Resident Lounge","sp","relax","sp-lounge"],
     ["Sảnh tiệc Cascade","Cascade Party Lounge","sp","social","sp-party"],
     ["Bếp tiệc Claystone","Claystone Gourmet","sp","social","sp-gourmet"],
+    ["Phòng karaoke","Karaoke Room","sp","social","sp-karaoke"],
     ["Vương quốc Hồ Sen","Lotus Pond Kids World","sp","kids","sp-kids-club"],
     ["Phòng Golf 3D Premier","Premier 3D Golf","sp","sport","sp-golf"],
     ["Sảnh đọc","Reading Lounge","sp","work"],
@@ -527,18 +577,11 @@ footer .in{display:grid;gap:8px}
     ["Phòng gym trên cao Zenith","Zenith Fitness","sp","sport","sp-gym"],
     ["Bể bơi nước nóng trên cao","Sky Bath","sp","water","sp-sky-pool"],
     ["Bể nước trẻ em trên cao","Kids Pool","sp","kids","sp-kids-pool"],
-    ["Bar Lá Sen & Wine & Dine Club","Lotus Leaf Bar","sp","social","sp-sky-lounge"]
+    ["Bar Lá Sen & Wine and Dine Club","Lotus Leaf Bar","sp","social","sp-sky-lounge"]
   ];
 
-  const IMG = {
-    "all-towers":["Toàn cảnh 3 tòa","all"], "s12-aerial":["Phối cảnh tòa I & II","s12"], "sp-aerial":["Phối cảnh tòa Premier","sp"]
-  };
-  AM.forEach(a => { if(a[4] && !IMG[a[4]]) IMG[a[4]] = [a[0], a[2]]; });
-
   const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d");
-  const $ = s => document.querySelector(s);
-  const state = { q:"", tower:"all", kind:"all", gtower:"all" };
-
+  const state = { q:"", tower:"all", kind:"all", gtower:"all", br:"all" };
   function chips(host, opts, key, after){
     host.textContent = "";
     opts.forEach(([v,label]) => {
@@ -549,56 +592,155 @@ footer .in{display:grid;gap:8px}
     });
   }
   const towerOpts = [["all","Tất cả"],["s1","Senique I"],["s2","Senique II"],["sp","Premier"]];
+  const inTower = (t, f) => f === "all" || t === f || (t === "s12" && (f === "s1" || f === "s2"));
   chips($("#f-tower"), towerOpts, "tower", renderAm);
   chips($("#f-kind"), [["all","Mọi nhóm"], ...Object.entries(K)], "kind", renderAm);
-  chips($("#g-tower"), towerOpts, "gtower", renderGal);
-
-  function inTower(t, f){ return f === "all" || t === f || (t === "s12" && (f === "s1" || f === "s2")) || (t === "all"); }
-
-  function tag(t){ const s = document.createElement("span"); s.className = "tag " + TC[t]; s.textContent = T[t]; return s; }
 
   function renderAm(){
     const q = norm(state.q.trim());
     const list = AM.filter(a => inTower(a[2], state.tower) && (state.kind === "all" || a[3] === state.kind) && (!q || norm(a[0]+" "+a[1]+" "+K[a[3]]).includes(q)));
+    list.sort((a,b) => (b[4]?1:0) - (a[4]?1:0));
     const host = $("#am-list"); host.textContent = "";
     list.forEach(a => {
       const el = document.createElement(a[4] ? "button" : "div");
       el.className = "am" + (a[4] ? " has-img" : "");
-      if(a[4]){ el.type = "button"; el.addEventListener("click", () => openLb(a[4])); }
       const n = document.createElement("span"); n.className = "n"; n.textContent = a[0];
       const e = document.createElement("span"); e.className = "e"; e.textContent = a[1];
       const m = document.createElement("span"); m.className = "m"; m.append(tag(a[2]), document.createTextNode(K[a[3]]));
-      el.append(n, e, m); host.appendChild(el);
+      if(a[4]){
+        el.type = "button";
+        const img = document.createElement("img"); img.src = src(a[4]); img.alt = ""; img.loading = "lazy";
+        const tx = document.createElement("span"); tx.className = "tx"; tx.append(n, e, m);
+        el.append(img, tx);
+        el.addEventListener("click", () => openLb(a[4], [a[4]]));
+      } else el.append(n, e, m);
+      host.appendChild(el);
     });
     $("#am-count").textContent = list.length ? list.length + " tiện ích" : "";
     if(!list.length){ const p = document.createElement("p"); p.className = "empty"; p.textContent = "Không thấy tiện ích nào khớp. Thử từ khác, ví dụ “gym” hoặc “trẻ em”."; host.appendChild(p); }
   }
+  let qt; $("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { state.q = e.target.value; renderAm(); }, 120); });
 
+  /* ---------- gallery ---------- */
+  chips($("#g-tower"), [["all","Tất cả"],["s12","Senique I & II"],["sp","Premier"],["shop","Shophouse"]], "gtower", renderGal);
+  function figure(k, list){
+    const v = IMGMAP[k];
+    const f = document.createElement("figure"); f.tabIndex = 0; f.setAttribute("role","button"); f.setAttribute("aria-label","Xem lớn: "+v.c);
+    const img = document.createElement("img"); img.src = src(k); img.alt = v.c; img.loading = "lazy";
+    const c = document.createElement("figcaption"); const s = document.createElement("span"); s.textContent = v.c;
+    c.append(s, tag(v.t));
+    f.append(img, c);
+    const open = () => openLb(k, list);
+    f.addEventListener("click", open);
+    f.addEventListener("keydown", ev => { if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); open(); } });
+    return f;
+  }
   function renderGal(){
+    const g = state.gtower;
+    const keys = IMG.filter(([,,t]) => g === "all" || t === g || (g === "s12" && (t === "s1" || t === "s2" || t === "s12"))).map(x => x[0]);
     const host = $("#gal"); host.textContent = "";
-    Object.entries(IMG).filter(([,v]) => inTower(v[1], state.gtower)).forEach(([k,v]) => {
-      const f = document.createElement("figure"); f.tabIndex = 0; f.setAttribute("role","button"); f.setAttribute("aria-label","Xem lớn: "+v[0]);
-      const img = document.createElement("img"); img.src = "img/"+k+".webp"; img.alt = v[0]; img.loading = "lazy";
-      const c = document.createElement("figcaption"); const s = document.createElement("span"); s.textContent = v[0];
-      c.append(s, tag(v[1] === "all" ? "s12" : v[1]));
-      if(v[1] === "all"){ c.lastChild.textContent = "Toàn dự án"; }
-      f.append(img, c);
-      f.addEventListener("click", () => openLb(k));
-      f.addEventListener("keydown", ev => { if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); openLb(k); } });
-      host.appendChild(f);
+    keys.forEach(k => host.appendChild(figure(k, keys)));
+  }
+  const shopKeys = IMG.filter(x => x[2] === "shop").map(x => x[0]);
+  shopKeys.forEach(k => $("#gal-shop").appendChild(figure(k, shopKeys)));
+
+  const lb = $("#lb"); let lbList = [], lbI = 0;
+  function show(){ const k = lbList[lbI], v = IMGMAP[k]; $("#lb-img").src = src(k); $("#lb-img").alt = v.c; $("#lb-cap").textContent = v.c + " · " + T[v.t] + "  (" + (lbI+1) + "/" + lbList.length + ")"; }
+  function openLb(k, list){ lbList = list || [k]; lbI = Math.max(0, lbList.indexOf(k)); show(); if(lb.showModal) lb.showModal(); else lb.setAttribute("open",""); }
+  $("#lb-x").addEventListener("click", () => lb.close());
+  $("#lb-p").addEventListener("click", () => { lbI = (lbI - 1 + lbList.length) % lbList.length; show(); });
+  $("#lb-n").addEventListener("click", () => { lbI = (lbI + 1) % lbList.length; show(); });
+  lb.addEventListener("click", e => { if(e.target === lb) lb.close(); });
+  lb.addEventListener("keydown", e => { if(e.key === "ArrowLeft") $("#lb-p").click(); if(e.key === "ArrowRight") $("#lb-n").click(); });
+
+  /* ---------- unit types ---------- */
+  const r = (a,b,s=1) => { const o=[]; for(let i=a;i<=b;i+=s) o.push(i); return o; };
+  const E = r(2,18,2), O = r(3,19,2), E2 = r(22,34,2), O2 = r(25,35,2), E3 = r(24,36,2);
+  // [nhóm PN, loại, mã, NFA, GFA, tầng (chữ), S1 (chữ), S2 (chữ), dữ liệu tra cứu {s1:[[căn,[tầng]]], s2:[...]}, duplex?]
+  const TYPES = [
+    ["1","1PN","A1.01",42.0,46.2,"02–20","19, 23 (tầng chẵn 02–18) · 15, 19 (tầng lẻ 03–19) · 11, 15 (tầng 20)","18, 22 (chẵn 02–18) · 14, 18 (lẻ 03–19) · 10, 14 (tầng 20)",
+      {s1:[[19,E],[23,E],[15,O],[19,O],[11,[20]],[15,[20]]], s2:[[18,E],[22,E],[14,O],[18,O],[10,[20]],[14,[20]]]}],
+    ["2","2PN nhỏ","B2.02",53.5,58.5,"02–36","02 (02–19, 21–36) · 12 (chẵn 02–18, 21, 23) · 10 (lẻ 03–19, 22, 24–36) · 08 (tầng 20)","05 (chẵn 02–18, 21, 23, lẻ 25–35) · 15 (chẵn 02–18, 21, 23) · 03, 11 (lẻ 03–19, 22, chẵn 24–36) · 01 (tầng 20) · 13 (lẻ 25–35)",
+      {s1:[[2,[...r(2,19),...r(21,36)]],[12,[...E,21,23]],[10,[...O,22,...r(24,36)]],[8,[20]]], s2:[[5,[...E,21,23,...O2]],[15,[...E,21,23]],[3,[...O,22,...E3]],[11,[...O,22,...E3]],[1,[20]],[13,O2]]}],
+    ["2","2PN nhỏ","B2.01",54.4,59.4,"02–35","21 (chẵn 02–18) · 17 (lẻ 03–19) · 13 (tầng 20) · 20 (21, 23) · 16 (chẵn 22–34) · 18 (lẻ 25–35)","20 (chẵn 02–18) · 16 (lẻ 03–19) · 12 (tầng 20) · 19 (21, 23) · 15 (chẵn 22–34) · 17 (lẻ 25–35)",
+      {s1:[[21,E],[17,O],[13,[20]],[20,[21,23]],[16,E2],[18,O2]], s2:[[20,E],[16,O],[12,[20]],[19,[21,23]],[15,E2],[17,O2]]}],
+    ["2","2PN vừa","B1.01",64.3,70.0,"02–35","24 (chẵn 02–18) · 20 (lẻ 03–19, 25–35) · 18 (chẵn 22–34) · 16 (tầng 20) · 22 (21, 23)","17 (chẵn 02–18, 21, 23) · 13 (lẻ 03–19, chẵn 22–34) · 09 (tầng 20) · 15 (lẻ 25–35)",
+      {s1:[[24,E],[20,[...O,...O2]],[18,E2],[16,[20]],[22,[21,23]]], s2:[[17,[...E,21,23]],[13,[...O,...E2]],[9,[20]],[15,O2]]}],
+    ["2","2PN lớn","B3.01",81.3,88.4,"02–23","07 (chẵn 02–18, 21, 23) · 05 (lẻ 03–19, 22) · 03 (tầng 20)","10 (chẵn 02–18, 21, 23) · 08 (lẻ 03–19, 22) · 06 (tầng 20)",
+      {s1:[[7,[...E,21,23]],[5,[...O,22]],[3,[20]]], s2:[[10,[...E,21,23]],[8,[...O,22]],[6,[20]]]}],
+    ["3","3PN nhỏ","C2.02",83.2,90.3,"02–19, 21–36","16 (chẵn 02–18, 21, 23) · 12 (lẻ 03–19, 22, chẵn 24–36) · 14 (lẻ 25–35)","như Senique I",
+      {s1:[[16,[...E,21,23]],[12,[...O,22,...E3]],[14,O2]], s2:[[16,[...E,21,23]],[12,[...O,22,...E3]],[14,O2]]}],
+    ["3","3PN nhỏ","C1.01",84.9,92.1,"21–35","21 (21, 23) · 17 (chẵn 22–34) · 19 (lẻ 25–35)","18 (21, 23) · 14 (chẵn 22–34) · 16 (lẻ 25–35)",
+      {s1:[[21,[21,23]],[17,E2],[19,O2]], s2:[[18,[21,23]],[14,E2],[16,O2]]}],
+    ["3","3PN nhỏ","C2.01",85.9,93.1,"02–19, 21–36","01","01",
+      {s1:[[1,[...r(2,19),...r(21,36)]]], s2:[[1,[...r(2,19),...r(21,36)]]]}],
+    ["3","3PN vừa","C3.02",96.8,104.9,"02–37","08 (chẵn 02–18, 21, 23) · 06 (lẻ 03–19, 22, chẵn 24–36) · 04 (tầng 20) · 07 (lẻ 25–35) · 03 (tầng 37)","09 (chẵn 02–18, 21, 23) · 07 (lẻ 03–19, 22, chẵn 24–36) · 05 (tầng 20) · 08 (lẻ 25–35) · 04 (tầng 37)",
+      {s1:[[8,[...E,21,23]],[6,[...O,22,...E3]],[4,[20]],[7,O2],[3,[37]]], s2:[[9,[...E,21,23]],[7,[...O,22,...E3]],[5,[20]],[8,O2],[4,[37]]]}],
+    ["3","3PN vừa","C4.01",97.3,104.8,"36","14","15", {s1:[[14,[36]]], s2:[[15,[36]]]}],
+    ["3","3PN lớn","C3.01",101.5,109.9,"02–36","06 (chẵn 02–18, 21, 23, lẻ 25–35) · 02 (tầng 20) · 04 (lẻ 03–19, 22, chẵn 24–36)","11 (chẵn 02–18, 21, 23) · 07 (tầng 20) · 09 (lẻ 03–19, 22, 24–36)",
+      {s1:[[6,[...E,21,23,...O2]],[2,[20]],[4,[...O,22,...E3]]], s2:[[11,[...E,21,23]],[7,[20]],[9,[...O,22,...r(24,36)]]]}],
+    ["3","3PN lớn nhất","C5.01",107.5,115.8,"36","13","16", {s1:[[13,[36]]], s2:[[16,[36]]]}, false, true],
+    ["4","4PN vừa","D1.03",153.6,162.6,"37","08","07", {s1:[[8,[37]]], s2:[[7,[37]]]}],
+    ["4","4PN lớn","D1.02",177.5,187.6,"37","02","05", {s1:[[2,[37]]], s2:[[5,[37]]]}],
+    ["4","4PN rất lớn","D1.01",187.4,197.5,"37","01","06", {s1:[[1,[37]]], s2:[[6,[37]]]}],
+    ["d","Duplex nhỏ","DUP1.02","63,3 + 54,2 = 117,5","70,2 + 60,0 = 130,2","Tầng dưới: chẵn 02–18, 21, 23, lẻ 25–35","04","13 (chẵn 02–18, 21, 23) · 11 (lẻ 25–35)",
+      {s1:[[4,[...E,21,23,...O2]]], s2:[[13,[...E,21,23]],[11,O2]]}, true],
+    ["d","Duplex vừa","DUP1.01","73,4 + 60,4 = 133,7","80,9 + 66,7 = 147,6","Tầng dưới: chẵn 02–18, 21, 23, lẻ 25–35","03","14 (chẵn 02–18, 21, 23) · 12 (lẻ 25–35)",
+      {s1:[[3,[...E,21,23,...O2]]], s2:[[14,[...E,21,23]],[12,O2]]}, true],
+    ["d","Duplex vừa","DUP2.01","81,5 + 65,9 = 147,4","89,0 + 72,9 = 161,9","Tầng dưới: lẻ 25–33","05","08",
+      {s1:[[5,r(25,33,2)]], s2:[[8,r(25,33,2)]]}, true],
+    ["d","Duplex vừa","DUP3.01","81,5 + 108,1 = 189,5","89,0 + 116,4 = 205,4","36–37","05","08", {s1:[[5,[36]]], s2:[[8,[36]]]}, true],
+    ["p","Penthouse 4PN","PH1 (Premier)","207,2 + 144,5 = 351,7","223,0 + 156,3 = 379,3","36–37","Premier: căn 13, 14","—", null],
+    ["p","Penthouse 4PN","PH2.01 (Premier)","431,5","451,3","37","Premier: căn 01","—", null],
+    ["p","Penthouse 4PN","PH2.02 (Premier)","428,5","449,0","37","Premier: căn 02","—", null]
+  ];
+  const fmt = v => typeof v === "number" ? v.toLocaleString("vi-VN",{minimumFractionDigits:1}) + " m²" : v + " m²";
+  chips($("#f-br"), [["all","Tất cả"],["1","1PN"],["2","2PN"],["3","3PN"],["4","4PN"],["d","Duplex"],["p","Penthouse"]], "br", renderTypes);
+  function renderTypes(){
+    const tb = $("#types"); tb.textContent = "";
+    TYPES.filter(t => state.br === "all" || t[0] === state.br).forEach(t => {
+      const tr = document.createElement("tr"); if(t[10]) tr.className = "hl";
+      [[t[1]],[t[2]],[fmt(t[3]),"num"],[fmt(t[4]),"num"],[t[5]],[t[6],"small"],[t[7],"small"]].forEach(([v,c]) => { const td = document.createElement("td"); if(c) td.className = c; td.textContent = v; tr.appendChild(td); });
+      tb.appendChild(tr);
     });
   }
+  renderTypes();
 
-  const lb = $("#lb");
-  function openLb(k){
-    $("#lb-img").src = "img/"+k+".webp"; $("#lb-img").alt = IMG[k][0];
-    $("#lb-cap").textContent = IMG[k][0] + " · " + (IMG[k][1] === "all" ? "Toàn dự án" : T[IMG[k][1]]);
-    if(lb.showModal) lb.showModal(); else lb.setAttribute("open","");
+  /* Premier tầng điển hình 2-18 chẵn */
+  const SPF = [["01","3PN nhỏ C2.01","85,9"],["02","2PN nhỏ B2.02","53,5"],["03","Duplex vừa DUP1.01","73,4 (tầng dưới)"],["04","Duplex nhỏ DUP1.02","63,3 (tầng dưới)"],["05","2PN nhỏ B2.02M","53,5"],["06","3PN lớn C3.01","101,5"],["07","2PN lớn B3.01","81,3"],["08","3PN vừa C3.02","96,8"],["09","3PN vừa C3.02M","96,8"],["10","2PN lớn B3.01M","81,3"],["11","3PN lớn C3.01M","101,5"],["12","2PN nhỏ B2.02","53,5"],["13","Duplex nhỏ DUP1.02M","63,3 (tầng dưới)"],["14","Duplex vừa DUP1.01M","73,4 (tầng dưới)"],["15","2PN nhỏ B2.02M","53,5"],["16","3PN nhỏ C2.02","83,2"],["17","2PN vừa B1.01M","64,3"],["18","1PN A1.01M","42,0"],["19","1PN A1.01","42,0"],["20","2PN nhỏ B2.01M","54,4"],["21","2PN nhỏ B2.01","54,4"],["22","1PN A1.01M","42,0"],["23","1PN A1.01","42,0"],["24","2PN vừa B1.01","64,3"]];
+  const spb = $("#sp-floor");
+  SPF.forEach(([u,t,a]) => { const tr = document.createElement("tr"); [["Căn "+u],[t],[a+" m²","num"]].forEach(([v,c]) => { const td = document.createElement("td"); if(c) td.className = c; td.textContent = v; tr.appendChild(td); }); spb.appendChild(tr); });
+
+  /* tra căn */
+  function find(){
+    const tw = $("#f-t").value, f = parseInt($("#f-f").value,10), u = parseInt($("#f-u").value,10);
+    const host = $("#f-res"); host.textContent = "";
+    if(!f || !u){ return; }
+    const hits = [];
+    TYPES.forEach(t => {
+      const d = t[8]; if(!d) return;
+      (d[tw]||[]).forEach(([unit, floors]) => {
+        if(unit !== u) return;
+        if(floors.includes(f)) hits.push([t, t[9] ? "tầng dưới của căn Duplex" : ""]);
+        else if(t[9] && floors.includes(f-1)) hits.push([t, "tầng trên của căn Duplex (tầng dưới là tầng " + (f-1) + ")"]);
+      });
+    });
+    if(!hits.length){
+      const p = document.createElement("p"); p.className = "note";
+      p.textContent = "Không thấy căn " + String(u).padStart(2,"0") + " tầng " + f + " trong bảng của brochure. Kiểm tra lại số tầng, số căn hoặc xem mặt bằng tầng.";
+      host.appendChild(p); return;
+    }
+    hits.forEach(([t, extra]) => {
+      const d = document.createElement("div"); d.className = "res";
+      const b = document.createElement("b"); b.textContent = t[1] + " · " + t[2];
+      const p = document.createElement("p"); p.className = "note";
+      p.textContent = "Thông thủy " + fmt(t[3]) + " · tim tường " + fmt(t[4]) + (extra ? " · " + extra : "");
+      d.append(b, p); host.appendChild(d);
+    });
   }
-  $("#lb-x").addEventListener("click", () => lb.close());
-  lb.addEventListener("click", e => { if(e.target === lb) lb.close(); });
+  ["#f-t","#f-f","#f-u"].forEach(s => $(s).addEventListener("input", find));
+  find();
 
-  let t; $("#q").addEventListener("input", e => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value; renderAm(); }, 120); });
   renderAm(); renderGal();
 })();
 </script>
